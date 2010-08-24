@@ -33,10 +33,17 @@ if has('mac')
   set shell=/bin/bash
 endif
 
+filetype off
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
+" Auto reload the .vimrc if it changes
+autocmd! bufwritepost .vimrc source %
+
 " Extras ************************************************************************
 set wildmenu " This allows a small menu to appear at the botttom and not a new buffer
 set hidden " Allow you to handle buffers better
-let mapleader = " "  " My Leader key
+let mapleader = ","  " My Leader key
 runtime macros/matchit.vim " Mo power for matching with %
 
 
@@ -142,7 +149,7 @@ nmap <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR><CR>
 " set directory=~/backup/vim/swap
 
 " Sets path to directory buffer was loaded from
-autocmd BufEnter * lcd %:p:h
+" autocmd BufEnter * lcd %:p:h
 
 
 " File Stuff ******************************************************************
@@ -212,24 +219,11 @@ autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 let NERDTreeHijackNetrw=1
 
 " Single click for everything
-let NERDTreeMouseMode=1
+" let NERDTreeMouseMode=1
 
-
-" SnippetsEmu *****************************************************************
-"imap <unique> <C-j> <Plug>Jumper
-"let g:snip_start_tag = "_\."
-"let g:snip_end_tag = "\._"
-"let g:snip_elem_delim = ":"
-"let g:snip_set_textmate_cp = '1'  " Tab to expand snippets, not automatically.
-
-
-" fuzzyfinder_textmate ********************************************************
-" map ,t :FuzzyFinderTextMate<CR>
-" map ,b :FuzzyFinderBuffer<CR>
-" let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
 
 " Tag List ***************************************************************
-map ,r :TlistToggle<CR>
+"map ,r :TlistToggle<CR>
 
 " autocomplpop ***************************************************************
 " complete option
@@ -238,7 +232,6 @@ map ,r :TlistToggle<CR>
 "set complete=.
 "let g:AutoComplPop_IgnoreCaseOption = 0
 "let g:AutoComplPop_BehaviorKeywordLength = 2
-
 
 " Use Ack instead of Grep when available
 if executable("ack")
@@ -265,8 +258,6 @@ endif
 " -----------------------------------------------------------------------------  
 " |                               Startup                                     |
 " -----------------------------------------------------------------------------  
-" Open NERDTree on start
-"autocmd VimEnter * exe 'NERDTree' | wincmd l 
 
 
 
@@ -294,7 +285,7 @@ endif
 set laststatus=2
 
 " Format the statusline
-let &statusline='[%{GitBranch()}] %<%f%{&mod?"[+]":""}%r%{&fenc !~ "^$\\|utf-8" || &bomb ? "[".&fenc.(&bomb?"-bom":"")."]" : ""}%=%10.(Line: %l/%L Col: %c%V %P%)'
+" let &statusline='[%{exists('g:loaded_rvm')?Rvm#statusline()}][%{GitBranch()}] %<%f%{&mod?"[+]":""}%r%{&fenc !~ "^$\\|utf-8" || &bomb ? "[".&fenc.(&bomb?"-bom":"")."]" : ""}%=%10.(Line: %l/%L Col: %c%V %P%)'
 "set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
 
 
@@ -302,5 +293,7 @@ function! CurDir()
     let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
     return curdir
 endfunction
+
+
 
 

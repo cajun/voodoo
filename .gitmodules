@@ -13,3 +13,9 @@
 [submodule "bundle/git-vim"]
 	path = bundle/git-vim
 	url = http://github.com/motemen/git-vim.git
+[submodule "bundle/vim-rvm"]
+	path = bundle/vim-rvm
+	url = http://github.com/csexton/rvm.vim.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = http://github.com/ervandew/supertab.git
