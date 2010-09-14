@@ -115,7 +115,11 @@ set background=dark
 syntax on " syntax highlighting
 "colorscheme ir_black
 colorscheme vibrantink
- 
+
+
+" Match ***********************************************************************
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 " Status Line *****************************************************************
 set showcmd
@@ -124,7 +128,7 @@ set ch=2 " Make command line two lines high
 " match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
 
 " Formatter
-set formatprg=par
+set formatprg=par\ -w50j
 
 " Line Wrapping ***************************************************************
 set nowrap
