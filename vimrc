@@ -123,20 +123,22 @@ set linebreak  " Wrap at word
 imap jj <Esc>
 com! W :w
 
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
+
+
 " Helpful copy lines of last search to new window
 nmap <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR><CR>
 
 " Directories *****************************************************************
-" Setup backup location and enable
-" set backupdir=~/backup/vim
-" set backup
-
-" Set Swap directory
-" set directory=~/backup/vim/swap
-
-" Sets path to directory buffer was loaded from
-" autocmd BufEnter * lcd %:p:h
-
 
 " File Stuff ******************************************************************
 filetype plugin indent on
@@ -245,12 +247,6 @@ endif
 " |                               Startup                                     |
 " -----------------------------------------------------------------------------  
 
-
-
-
-
-
-
 "set ep=ruby
 """"""""""""""""""""""""""""""
 " => Statusline
@@ -260,14 +256,3 @@ set laststatus=2
 
 " Format the statusline
 let &statusline='%{fugitive#statusline()} %<%f%{&mod?"[+]":""}%r%{&fenc !~ "^$\\|utf-8" || &bomb ? "[".&fenc.(&bomb?"-bom":"")."]" : ""}%=%10.(Line: %l/%L Col: %c%V %P%)'
-"set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
-
-
-function! CurDir()
-    let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
-    return curdir
-endfunction
-
-
-
-
