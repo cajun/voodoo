@@ -251,18 +251,6 @@ endif
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 "set ep=ruby
 """"""""""""""""""""""""""""""
 " => Statusline
@@ -271,7 +259,7 @@ endif
 set laststatus=2
 
 " Format the statusline
-" let &statusline='[%{GitBranch()}] %<%f%{&mod?"[+]":""}%r%{&fenc !~ "^$\\|utf-8" || &bomb ? "[".&fenc.(&bomb?"-bom":"")."]" : ""}%=%10.(Line: %l/%L Col: %c%V %P%)'
+let &statusline='%{fugitive#statusline()} %<%f%{&mod?"[+]":""}%r%{&fenc !~ "^$\\|utf-8" || &bomb ? "[".&fenc.(&bomb?"-bom":"")."]" : ""}%=%10.(Line: %l/%L Col: %c%V %P%)'
 "set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
 
 
