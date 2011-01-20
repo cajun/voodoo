@@ -6,16 +6,6 @@
 " |   jj = <esc>  Very useful for keeping your hands on the home row          |
 " |   ,n = toggle NERDTree off and on                                         |
 " |                                                                           |
-" |   ,f = fuzzy find all files                                               |
-" |   ,b = fuzzy find in all buffers                                          |
-" |                                                                           |
-" |   ,r = open tag list                                                      |
-" |   hh = inserts '=>'                                                       |
-" |   aa = inserts '@'                                                        |
-" |                                                                           |
-" |   ,h = new horizontal window                                              |
-" |   ,v = new vertical window                                                |
-" |                                                                           |
 " |   ,i = toggle invisibles                                                  |
 "
 " |                                                                           |
@@ -29,9 +19,7 @@
 
 
 set nocompatible
-if has('mac')
-  set shell=/bin/bash
-endif
+set shell=/bin/bash
 
 filetype off
 call pathogen#helptags()
@@ -46,7 +34,7 @@ set hidden " Allow you to handle buffers better
 let mapleader = ","  " My Leader key
 runtime macros/matchit.vim " Mo power for matching with %
 
-
+set wildignore +=vendor/gems/**,vendor/cache/**,tmp/**
 
 " Tabs ************************************************************************
 "set sta " a <Tab> in an indent inserts 'shiftwidth' spaces
@@ -88,10 +76,6 @@ set numberwidth=4
 set equalalways " Multiple windows, when created, are equal in size
 set splitbelow splitright
 
-"Vertical split then hop to new buffer
-:noremap ,v :vsp^M^W^W<cr>
-:noremap ,h :split^M^W^W<cr>
-
 
 " Cursor highlights ***********************************************************
 set cursorline
@@ -113,8 +97,8 @@ endif
 set t_Co=256 " 256 colors
 set background=dark 
 syntax on " syntax highlighting
-"colorscheme ir_black
-colorscheme vibrantink
+colorscheme ir_black
+"colorscheme vibrantink
 
 
 " Match ***********************************************************************
@@ -137,9 +121,7 @@ set linebreak  " Wrap at word
 " Mappings ********************************************************************
 " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
 imap jj <Esc>
-imap uu _
-imap hh =>
-imap aa @
+com! W :w
 
 " Helpful copy lines of last search to new window
 nmap <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR><CR>
@@ -289,7 +271,7 @@ endif
 set laststatus=2
 
 " Format the statusline
-" let &statusline='[%{exists('g:loaded_rvm')?Rvm#statusline()}][%{GitBranch()}] %<%f%{&mod?"[+]":""}%r%{&fenc !~ "^$\\|utf-8" || &bomb ? "[".&fenc.(&bomb?"-bom":"")."]" : ""}%=%10.(Line: %l/%L Col: %c%V %P%)'
+" let &statusline='[%{GitBranch()}] %<%f%{&mod?"[+]":""}%r%{&fenc !~ "^$\\|utf-8" || &bomb ? "[".&fenc.(&bomb?"-bom":"")."]" : ""}%=%10.(Line: %l/%L Col: %c%V %P%)'
 "set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
 
 
