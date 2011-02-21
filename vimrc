@@ -29,12 +29,13 @@ call pathogen#runtime_append_all_bundles()
 autocmd! bufwritepost .vimrc source %
 
 " Extras ************************************************************************
-set wildmenu " This allows a small menu to appear at the botttom and not a new buffer
+set wildmenu " This allows a small menu to appear at the bottom and not a new buffer
 set hidden " Allow you to handle buffers better
 let mapleader = ","  " My Leader key
 runtime macros/matchit.vim " Mo power for matching with %
 
-set wildignore +=vendor/gems/**,vendor/cache/**,tmp/**
+" move to .vimrc.local
+"set wildignore +=vendor/gems/**,vendor/cache/**,tmp/**
 
 " Tabs ************************************************************************
 "set sta " a <Tab> in an indent inserts 'shiftwidth' spaces
@@ -63,8 +64,8 @@ call Tabstyle_spaces()
 
 
 " Indenting *******************************************************************
-set ai " Automatically set the indent of a new line (local to buffer)
-set si " smartindent	(local to buffer)
+set autoindent " Automatically set the indent of a new line (local to buffer)
+set smartindent " smartindent	(local to buffer)
 
 
 " Scrollbars ******************************************************************
@@ -85,7 +86,7 @@ set cursorline
 " Searching *******************************************************************
 set hlsearch  " highlight search
 set incsearch  " incremental search, search as you type
-set ignorecase " Ignore case when searching 
+set ignorecase " Ignore case when searching
 set smartcase " Ignore case when searching lowercase
 
 
@@ -95,7 +96,7 @@ if has('gui_running')
 endif
 
 set t_Co=256 " 256 colors
-set background=dark 
+set background=dark
 syntax on " syntax highlighting
 colorscheme ir_black
 "colorscheme vibrantink
@@ -109,10 +110,10 @@ match ExtraWhitespace /\s\+$/
 set showcmd
 set ruler " Show ruler
 set ch=2 " Make command line two lines high
-" match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
+match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
 
 " Formatter
-set formatprg=par\ -w50j
+set formatprg=par\ -w80j
 
 " Line Wrapping ***************************************************************
 set nowrap
@@ -141,10 +142,10 @@ nmap <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR><CR>
 " Directories *****************************************************************
 
 " File Stuff ******************************************************************
-filetype plugin indent on
 " To show current filetype use: set filetype
+filetype plugin indent on
 
-"autocmd FileType html :set filetype=xhtml 
+"autocmd FileType html :set filetype=xhtml
 set autoread " Auto read when a file is changed from the outside
 
 " Inser New Line **************************************************************
@@ -161,7 +162,6 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 " Misc ************************************************************************
 set backspace=indent,eol,start
 set number " Show line numbers
-set matchpairs+=<:>
 set vb t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
 
 
@@ -191,7 +191,7 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 " May require ruby compiled in
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete 
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 
 
 
@@ -202,28 +202,24 @@ autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 
 " NERDTree ********************************************************************
 :noremap ,n :NERDTreeToggle<CR>
-
-" User instead of Netrw when doing an edit /foobar
-let NERDTreeHijackNetrw=1
-
-" Single click for everything
-" let NERDTreeMouseMode=1
-
-
 " Tag List ***************************************************************
 "map ,r :TlistToggle<CR>
 
 " autocomplpop ***************************************************************
 " complete option
-"set complete=.,w,b,u,t,k
-"let g:AutoComplPop_CompleteOption = '.,w,b,u,t,k'
-"set complete=.
-"let g:AutoComplPop_IgnoreCaseOption = 0
-"let g:AutoComplPop_BehaviorKeywordLength = 2
+set complete=.,w,b,u,t,k
+let g:AutoComplPop_CompleteOption = '.,w,b,u,t,k'
+set complete=.
+let g:AutoComplPop_IgnoreCaseOption = 0
+let g:AutoComplPop_BehaviorKeywordLength = 2
 
 " Use Ack instead of Grep when available
 if executable("ack")
   set grepprg=ack\ -H\ --nogroup\ --nocolor
+endif
+
+if executable("ack-grep")
+  set grepprg=ack-grep\ -H\ --nogroup\ --nocolor
 endif
 
 " -----------------------------------------------------------------------------  
@@ -256,3 +252,7 @@ set laststatus=2
 
 " Format the statusline
 let &statusline='%{fugitive#statusline()} %<%f%{&mod?"[+]":""}%r%{&fenc !~ "^$\\|utf-8" || &bomb ? "[".&fenc.(&bomb?"-bom":"")."]" : ""}%=%10.(Line: %l/%L Col: %c%V %P%)'
+
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
