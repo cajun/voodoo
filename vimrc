@@ -1,4 +1,5 @@
 " -----------------------------------------------------------------------------  
+"
 " |                            VIM Settings                                   |
 " |                   (see gvimrc for gui vim settings)                       |
 " |                                                                           |
@@ -34,7 +35,7 @@ set hidden " Allow you to handle buffers better
 let mapleader = ","  " My Leader key
 runtime macros/matchit.vim " Mo power for matching with %
 
-set wildignore +=vendor/gems/**,vendor/cache/**,tmp/**
+set wildignore +=mongoid-rspec/**,vendor/gems/**,vendor/cache/**,tmp/**
 
 " Tabs ************************************************************************
 "set sta " a <Tab> in an indent inserts 'shiftwidth' spaces
@@ -109,7 +110,7 @@ match ExtraWhitespace /\s\+$/
 set showcmd
 set ruler " Show ruler
 set ch=2 " Make command line two lines high
-" match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
+match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
 
 " Formatter
 set formatprg=par\ -w50j
@@ -134,7 +135,6 @@ vmap <C-Down> ]egv
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 
-
 " Helpful copy lines of last search to new window
 nmap <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR><CR>
 
@@ -144,12 +144,18 @@ nmap <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR><CR>
 filetype plugin indent on
 " To show current filetype use: set filetype
 
-"autocmd FileType html :set filetype=xhtml 
-set autoread " Auto read when a file is changed from the outside
+"autocmd FileType html :set filetype=xhtml
+"set autoread " Auto read when a file is changed from the outside
+
+augroup vimrcAu
+  au!
+  au BufEnter,BufNew *.log setlocal autoread
+augroup END
 
 " Inser New Line **************************************************************
 map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
-map <Enter> o<ESC>
+" map <Enter> o<ESC>
+
 
 
 
@@ -163,7 +169,6 @@ set backspace=indent,eol,start
 set number " Show line numbers
 set matchpairs+=<:>
 set vb t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
-
 
 " Invisible characters *********************************************************
 set listchars=trail:.,tab:>-,eol:$
