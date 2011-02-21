@@ -22,3 +22,6 @@
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/vim-tailminusf"]
+	path = bundle/vim-tailminusf
+	url = https://github.com/vim-scripts/TailMinusF.git
