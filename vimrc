@@ -15,7 +15,6 @@
 " |   :call Tabstyle_tabs = set tab to real tabs                              |
 " |   :call Tabstyle_spaces = set tab to 2 spaces                             |
 " |                                                                           |
-" | Put machine/user specific settings in ~/.vimrc.local                      |
 " -----------------------------------------------------------------------------  
 
 
@@ -35,8 +34,7 @@ set hidden " Allow you to handle buffers better
 let mapleader = ","  " My Leader key
 runtime macros/matchit.vim " Mo power for matching with %
 
-" move to .vimrc.local
-"set wildignore +=mongoid-rspec/**,vendor/gems/**,vendor/cache/**,tmp/**
+set wildignore +=mongoid-rspec/**,vendor/gems/**,vendor/cache/**,tmp/**
 
 " Tabs ************************************************************************
 "set sta " a <Tab> in an indent inserts 'shiftwidth' spaces
@@ -99,8 +97,8 @@ endif
 set t_Co=256 " 256 colors
 set background=dark
 syntax on " syntax highlighting
-colorscheme ir_black
-"colorscheme vibrantink
+"colorscheme ir_black
+colorscheme vibrantink
 
 
 " Match ***********************************************************************
@@ -111,7 +109,7 @@ match ExtraWhitespace /\s\+$/
 set showcmd
 set ruler " Show ruler
 set ch=2 " Make command line two lines high
-match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
+" match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
 
 " Formatter
 set formatprg=par\ -w80j
@@ -122,16 +120,18 @@ set linebreak  " Wrap at word
 
 " Mappings ********************************************************************
 " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
-imap jj <Esc>
+imap jk <Esc>
+imap kj <Esc>
 com! W :w
 
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+" Nice but i don't bubble text'
+" " Bubble single lines
+" nmap <C-Up> [e
+" nmap <C-Down> ]e
+" 
+" " Bubble multiple lines
+" vmap <C-Up> [egv
+" vmap <C-Down> ]egv
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
@@ -154,9 +154,10 @@ filetype plugin indent on
 "augroup END
 
 " Inser New Line **************************************************************
-map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
+" map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
 " this will not allow easy edits in command window or search window
-" map <Enter> o<ESC> 
+" map <Enter> o<ESC>
+
 
 
 
@@ -209,7 +210,7 @@ autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 " NERDTree ********************************************************************
 :noremap ,n :NERDTreeToggle<CR>
 " Tag List ***************************************************************
-"map ,r :TlistToggle<CR>
+map ,r :TlistToggle<CR>
 
 " autocomplpop ***************************************************************
 " complete option
@@ -227,6 +228,29 @@ endif
 if executable("ack-grep")
   set grepprg=ack-grep\ -H\ --nogroup\ --nocolor
 endif
+
+" Tabular
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+
+noremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+
 
 " -----------------------------------------------------------------------------  
 " |                             OS Specific                                   |
@@ -258,7 +282,3 @@ set laststatus=2
 
 " Format the statusline
 let &statusline='%{fugitive#statusline()} %<%f%{&mod?"[+]":""}%r%{&fenc !~ "^$\\|utf-8" || &bomb ? "[".&fenc.(&bomb?"-bom":"")."]" : ""}%=%10.(Line: %l/%L Col: %c%V %P%)'
-
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif

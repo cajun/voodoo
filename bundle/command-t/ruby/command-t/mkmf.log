@@ -1,19 +1,9 @@
 have_header: checking for ruby.h... -------------------- yes
 
-"/usr/bin/gcc-4.2 -o conftest -I/usr/local/Cellar/ruby/1.9.1-p378/include/ruby-1.9.1/i386-darwin10.4.0 -I/usr/local/Cellar/ruby/1.9.1-p378/include/ruby-1.9.1/ruby/backward -I/usr/local/Cellar/ruby/1.9.1-p378/include/ruby-1.9.1 -I. -I/usr/local/Cellar/readline/6.0/include -I/usr/local/Cellar/readline/6.0/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/usr/local/Cellar/readline/6.0/include -I/usr/local/Cellar/readline/6.0/include  -march=core2 -msse4.1 -w -pipe -O3 -O2 -g -Wall -Wno-parentheses  -fno-common -pipe -fno-common conftest.c  -L. -L/usr/local/Cellar/ruby/1.9.1-p378/lib -L. -L/usr/local/Cellar/readline/6.0/lib -L/usr/local/Cellar/readline/6.0/lib -L/usr/local/lib     -lruby-static  -lpthread -ldl -lobjc  "
+"gcc -E -I. -I/usr/lib/ruby/1.8/x86_64-linux -I.    -fno-strict-aliasing -g -g -O2  -fPIC    conftest.c -o conftest.i"
 checked program was:
 /* begin */
-1: #include "ruby.h"
-2: 
-3: int main() {return 0;}
-/* end */
-
-"/usr/bin/gcc-4.2 -E -I/usr/local/Cellar/ruby/1.9.1-p378/include/ruby-1.9.1/i386-darwin10.4.0 -I/usr/local/Cellar/ruby/1.9.1-p378/include/ruby-1.9.1/ruby/backward -I/usr/local/Cellar/ruby/1.9.1-p378/include/ruby-1.9.1 -I. -I/usr/local/Cellar/readline/6.0/include -I/usr/local/Cellar/readline/6.0/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/usr/local/Cellar/readline/6.0/include -I/usr/local/Cellar/readline/6.0/include  -march=core2 -msse4.1 -w -pipe -O3 -O2 -g -Wall -Wno-parentheses  -fno-common -pipe -fno-common  conftest.c -o conftest.i"
-checked program was:
-/* begin */
-1: #include "ruby.h"
-2: 
-3: #include <ruby.h>
+1: #include <ruby.h>
 /* end */
 
 --------------------
