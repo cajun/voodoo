@@ -31,7 +31,7 @@ autocmd! bufwritepost .vimrc source %
 " Extras ************************************************************************
 set wildmenu " This allows a small menu to appear at the bottom and not a new buffer
 set hidden " Allow you to handle buffers better
-let mapleader = ","  " My Leader key
+let mapleader=','  " My Leader key
 runtime macros/matchit.vim " Mo power for matching with %
 
 set wildignore +=mongoid-rspec/**,vendor/gems/**,vendor/cache/**,tmp/**
@@ -159,8 +159,10 @@ filetype plugin indent on
 " map <Enter> o<ESC>
 
 
-
-
+set undodir=~/.undo
+set undofile
+set undolevels=1000
+set undoreload=10000
 
 " Sessions ********************************************************************
 " Sets what is saved when you save a session
@@ -186,7 +188,7 @@ set mouse=a " Enable the mouse
 
 " Ruby stuff ******************************************************************
 "compiler ruby         " Enable compiler support for ruby
-map <F5> :!ruby %<CR>
+" map <F5> :!ruby %<CR>
 
 
 " Omni Completion *************************************************************
@@ -229,12 +231,14 @@ if executable("ack-grep")
   set grepprg=ack-grep\ -H\ --nogroup\ --nocolor
 endif
 
+
+nnoremap <F5> :GundoToggle<CR>
 " Tabular
 if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
+  nmap <Leader>z= :Tabularize /=<CR>
+  vmap <Leader>z= :Tabularize /=<CR>
+  nmap <Leader>z: :Tabularize /:\zs<CR>
+  vmap <Leader>z: :Tabularize /:\zs<CR>
 endif
 
 noremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
