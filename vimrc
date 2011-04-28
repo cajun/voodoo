@@ -76,6 +76,14 @@ set numberwidth=4
 set equalalways " Multiple windows, when created, are equal in size
 set splitbelow splitright
 
+" CTRL-H move to left window
+nmap <c-h> <c-w>h<c-w>
+" CTRL-L move to right window
+nmap <c-l> <c-w>l<c-w>
+" CTRL-J move to top window
+nmap <c-j> <c-w>j<c-w>
+" CTRL-K move to bottom window
+nmap <c-k> <c-w>k<c-w>
 
 " Cursor highlights ***********************************************************
 set cursorline
