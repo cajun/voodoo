@@ -73,8 +73,9 @@ set numberwidth=4
 
 
 " Windows *********************************************************************
-set equalalways " Multiple windows, when created, are equal in size
-set splitbelow splitright
+" set equalalways " Multiple windows, when created, are equal in size
+set splitright
+" set splitbelow splitright
 
 " CTRL-H move to left window
 nmap <c-h> <c-w>h<c-w>
