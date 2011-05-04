@@ -101,13 +101,15 @@ set smartcase " Ignore case when searching lowercase
 " Colors **********************************************************************
 if has('gui_running')
   set guioptions -=T
+else
 endif
 
-set t_Co=256 " 256 colors
 set background=dark
-syntax on " syntax highlighting
-"colorscheme ir_black
-colorscheme vibrantink
+
+let g:solarized_termcolors=256
+set t_Co=256 " 256 colors
+syntax enable " syntax highlighting
+colorscheme solarized
 
 
 " Match ***********************************************************************
