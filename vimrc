@@ -99,15 +99,16 @@ set smartcase " Ignore case when searching lowercase
 
 
 " Colors **********************************************************************
+set t_Co=16 " 256 colors
+let g:solarized_termcolors=16
+
 if has('gui_running')
   set guioptions -=T
+  set background=light
 else
+  set background=dark
 endif
 
-set background=dark
-
-let g:solarized_termcolors=256
-set t_Co=256 " 256 colors
 syntax enable " syntax highlighting
 colorscheme solarized
 
