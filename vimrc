@@ -1,22 +1,14 @@
 " -----------------------------------------------------------------------------  
-"
 " |                            VIM Settings                                   |
-" |                   (see gvimrc for gui vim settings)                       |
 " |                                                                           |
 " | Some highlights:                                                          |
-" |   jj = <esc>  Very useful for keeping your hands on the home row          |
 " |   ,n = toggle NERDTree off and on                                         |
-" |                                                                           |
 " |   ,i = toggle invisibles                                                  |
-"
-" |                                                                           |
-" |   enter and shift-enter = adds a new line after/before the current line   |
 " |                                                                           |
 " |   :call Tabstyle_tabs = set tab to real tabs                              |
 " |   :call Tabstyle_spaces = set tab to 2 spaces                             |
 " |                                                                           |
 " -----------------------------------------------------------------------------  
-
 
 set nocompatible
 set shell=/bin/bash
@@ -99,8 +91,8 @@ set smartcase " Ignore case when searching lowercase
 
 
 " Colors **********************************************************************
-set t_Co=16 " 256 colors
-let g:solarized_termcolors=16
+set t_Co=256 " 256 colors
+let g:solarized_termcolors=256
 
 if has('gui_running')
   set guioptions -=T
@@ -109,7 +101,7 @@ else
   set background=dark
 endif
 
-syntax enable " syntax highlighting
+syntax on " syntax highlighting
 colorscheme solarized
 
 
@@ -132,8 +124,6 @@ set linebreak  " Wrap at word
 
 " Mappings ********************************************************************
 " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
-imap jk <Esc>
-imap kj <Esc>
 com! W :w
 
 " Nice but i don't bubble text'
@@ -195,7 +185,7 @@ set nolist
 " Mouse ***********************************************************************
 set mouse=a " Enable the mouse
 "behave xterm
-"set selectmode=mouse
+set selectmode=mouse
 
 
 " Ruby stuff ******************************************************************
@@ -213,9 +203,6 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 " May require ruby compiled in
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-
-
-
 
 " -----------------------------------------------------------------------------  
 " |                              Plug-ins                                     |
@@ -274,14 +261,12 @@ endfunction
 " -----------------------------------------------------------------------------  
 
 " Mac *************************************************************************
-"if has("mac") 
-  "" 
-"endif
+if has("mac") 
+endif
  
 " Windows *********************************************************************
-"if has("gui_win32")
-  "" 
-"endif
+if has("gui_win32")
+endif
 
 
 
