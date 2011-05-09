@@ -1,4 +1,4 @@
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 " |                            VIM Settings                                   |
 " |                                                                           |
 " | Some highlights:                                                          |
@@ -8,7 +8,7 @@
 " |   :call Tabstyle_tabs = set tab to real tabs                              |
 " |   :call Tabstyle_spaces = set tab to 2 spaces                             |
 " |                                                                           |
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 
 set nocompatible
 set shell=/bin/bash
@@ -26,10 +26,9 @@ set hidden " Allow you to handle buffers better
 let mapleader=','  " My Leader key
 runtime macros/matchit.vim " Mo power for matching with %
 
-set wildignore +=mongoid-rspec/**,vendor/gems/**,vendor/cache/**,tmp/**
+set wildignore +=vendor/gems/**,vendor/cache/**,tmp/**
 
 " Tabs ************************************************************************
-"set sta " a <Tab> in an indent inserts 'shiftwidth' spaces
 
 function! Tabstyle_tabs()
   " Using 4 column tabs
@@ -112,8 +111,9 @@ match ExtraWhitespace /\s\+$/
 " Status Line *****************************************************************
 set showcmd
 set ruler " Show ruler
-set ch=2 " Make command line two lines high
-" match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
+set ch=1 " Make command line two lines high
+highlight LongLineWarning ctermbg=red guibg=red
+match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
 
 " Formatter
 set formatprg=par\ -w80j
@@ -123,20 +123,7 @@ set nowrap
 set linebreak  " Wrap at word
 
 " Mappings ********************************************************************
-" Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
 com! W :w
-
-" Nice but i don't bubble text'
-" " Bubble single lines
-" nmap <C-Up> [e
-" nmap <C-Down> ]e
-" 
-" " Bubble multiple lines
-" vmap <C-Up> [egv
-" vmap <C-Down> ]egv
-
-" Visually select the text that was last edited/pasted
-nmap gV `[v`]
 
 " Helpful copy lines of last search to new window
 nmap <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR><CR>
@@ -147,18 +134,12 @@ nmap <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR><CR>
 " To show current filetype use: set filetype
 filetype plugin indent on
 
-"autocmd FileType html :set filetype=xhtml
-"set autoread " Auto read when a file is changed from the outside
+set autoread " Auto read when a file is changed from the outside
 
-"augroup vimrcAu
-"  au!
-"  au BufEnter,BufNew *.log setlocal autoread
-"augroup END
-
-" Inser New Line **************************************************************
-" map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
-" this will not allow easy edits in command window or search window
-" map <Enter> o<ESC>
+augroup vimrcAu
+  au!
+  au BufEnter,BufNew *.log setlocal autoread
+augroup END
 
 
 set undodir=~/.undo
@@ -194,6 +175,8 @@ set selectmode=mouse
 
 
 " Omni Completion *************************************************************
+set ofu=syntaxcomplete#Complete
+
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -204,9 +187,9 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 " May require ruby compiled in
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 " |                              Plug-ins                                     |
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 
 " NERDTree ********************************************************************
 :noremap ,n :NERDTreeToggle<CR>
@@ -255,24 +238,24 @@ endfunction
 
 
 
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 " |                             OS Specific                                   |
 " |                      (GUI stuff goes in gvimrc)                           |
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 
 " Mac *************************************************************************
-if has("mac") 
+if has("mac")
 endif
- 
+
 " Windows *********************************************************************
 if has("gui_win32")
 endif
 
 
 
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 " |                               Startup                                     |
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 
 "set ep=ruby
 """"""""""""""""""""""""""""""
