@@ -200,7 +200,6 @@ map ,r :TlistToggle<CR>
 " complete option
 set complete=.,w,b,u,t,k
 let g:AutoComplPop_CompleteOption = '.,w,b,u,t,k'
-set complete=.
 let g:AutoComplPop_IgnoreCaseOption = 0
 let g:AutoComplPop_BehaviorKeywordLength = 2
 
