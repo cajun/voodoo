@@ -90,8 +90,10 @@ set smartcase " Ignore case when searching lowercase
 
 
 " Colors **********************************************************************
-set t_Co=256 " 256 colors
-let g:solarized_termcolors=256
+set t_Co=16 " 256 colors
+let g:solarized_termcolors=16
+let g:solarized_termtrans=1
+syntax on " syntax highlighting
 
 if has('gui_running')
   set guioptions -=T
@@ -100,7 +102,7 @@ else
   set background=dark
 endif
 
-syntax on " syntax highlighting
+
 colorscheme solarized
 
 
@@ -177,7 +179,7 @@ set selectmode=mouse
 " Omni Completion *************************************************************
 set ofu=syntaxcomplete#Complete
 
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html set omnifunc=html5complete#CompleteTags
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS

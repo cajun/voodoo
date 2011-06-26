@@ -55,3 +55,6 @@
 [submodule "bundle/vim-html5"]
 	path = bundle/vim-html5
 	url = https://github.com/othree/html5.vim.git
+[submodule "bundle/vim-less"]
+	path = bundle/vim-less
+	url = https://github.com/groenewege/vim-less
