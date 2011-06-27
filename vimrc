@@ -154,8 +154,18 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 
 " Misc ************************************************************************
 set backspace=indent,eol,start
-set number " Show line numbers
+set relativenumber " Show line numbers
 set vb t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
+
+function! g:ToggleNuMode()
+  if( &rnu == 1 )
+    set nu
+  else
+    set rnu
+  endif
+endfunc
+
+nnoremap <C-L> :call g:ToggleNuMode()<cr>
 
 " Invisible characters *********************************************************
 set listchars=trail:.,tab:>-,eol:$
@@ -198,9 +208,8 @@ map ,r :TlistToggle<CR>
 
 " autocomplpop ***************************************************************
 " complete option
-set complete=.,w,b,u,t,k
-let g:AutoComplPop_CompleteOption = '.,w,b,u,t,k'
-set complete=.
+set complete=.,w,b,u,i,t,k
+let g:AutoComplPop_CompleteOption = '.,w,b,u,i,t,k'
 let g:AutoComplPop_IgnoreCaseOption = 0
 let g:AutoComplPop_BehaviorKeywordLength = 2
 
