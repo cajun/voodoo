@@ -97,11 +97,11 @@ syntax on " syntax highlighting
 
 if has('gui_running')
   set guioptions -=T
-  set background=light
+  set guifont=Inconsolata:h24
 else
-  set background=dark
 endif
 
+  set background=dark
 
 colorscheme solarized
 
