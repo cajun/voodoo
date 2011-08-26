@@ -116,7 +116,7 @@ highlight LongLineWarning ctermbg=red guibg=red
 match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
 
 " Formatter
-set formatprg=par\ -w80j
+set formatprg=par\ -w50
 
 " Line Wrapping ***************************************************************
 set nowrap

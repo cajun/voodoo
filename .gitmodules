@@ -55,3 +55,9 @@
 [submodule "bundle/vim-html5"]
 	path = bundle/vim-html5
 	url = https://github.com/othree/html5.vim.git
+[submodule "bundle/vim-taglist"]
+	path = bundle/vim-taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "bundle/NERD_commenter"]
+	path = bundle/NERD_commenter
+	url = https://github.com/scrooloose/nerdcommenter.git
