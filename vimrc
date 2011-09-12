@@ -143,6 +143,9 @@ augroup vimrcAu
   au BufEnter,BufNew *.log setlocal autoread
 augroup END
 
+au! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax 
+
+au BufReadPost *.java exe ":compiler ant"
 
 set undodir=~/.undo
 set undofile
