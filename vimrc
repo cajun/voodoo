@@ -130,6 +130,18 @@ com! W :w
 " Helpful copy lines of last search to new window
 nmap <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR><CR>
 
+" Copy and Paste to clipborad
+vmap <C-c> :<Esc>`>a<CR><Esc>mx`<i<CR><Esc>my'xk$v'y!xclip -selection c<CR>u
+map <Insert> :set paste<CR>i<CR><CR><Esc>k:.!xclip -o<CR>JxkJx:set nopaste<CR>
+
+
+autocmd BufReadPre *.pdf set ro nowrap
+autocmd BufReadPost *.pdf silent %!pdftotext "%" -nopgbrk -layout -q -eol unix -
+autocmd BufWritePost *.pdf silent !rm -rf ~/PDF/%
+autocmd BufWritePost *.pdf silent !lp -s -d pdffg "%"
+autocmd BufWritePost *.pdf silent !until [ -e ~/PDF/% ]; do sleep 1; done
+autocmd BufWritePost *.pdf silent !mv ~/PDF/% %:p:h
+
 " Directories *****************************************************************
 
 " File Stuff ******************************************************************
@@ -212,6 +224,8 @@ autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 " Tag List ***************************************************************
 map ,r :TlistToggle<CR>
 
+set tags =./tags,./TAGS,tags,TAGS,./tmp/tags,./tmp/TAGS
+
 " autocomplpop ***************************************************************
 " complete option
 set complete=.,w,b,u,i,t,k
@@ -251,7 +265,11 @@ function! s:align()
   endif
 endfunction
 
-
+let g:S = 0  "result in global variable S
+function! Sum(number)
+  let g:S = g:S + a:number
+  return a:number
+endfunction
 
 " -----------------------------------------------------------------------------
 " |                             OS Specific                                   |

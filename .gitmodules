@@ -76,3 +76,6 @@
 [submodule "bundle/vim-latex"]
 	path = bundle/vim-latex
 	url = https://github.com/mineiro/vim-latex.git
+[submodule "bundle/vim-yard"]
+	path = bundle/vim-yard
+	url = https://github.com/postmodern/vim-yard.git
