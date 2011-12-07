@@ -42,6 +42,7 @@ function! Tabstyle_tabs()
   autocmd User Rails set noexpandtab
 endfunction
 
+
 function! Tabstyle_spaces()
   " Use 2 spaces
   set softtabstop=2
@@ -52,6 +53,8 @@ endfunction
 
 call Tabstyle_spaces()
 
+
+autocmd User Rails Rnavcommand coffee app/coffee -glob=**/* -suffix=.coffee
 
 " Indenting *******************************************************************
 set autoindent " Automatically set the indent of a new line (local to buffer)
@@ -97,7 +100,7 @@ syntax on " syntax highlighting
 
 if has('gui_running')
   set guioptions -=T
-  set guifont=Inconsolata:h24
+  set guifont=Anonymous:h22
 else
 endif
 
@@ -110,12 +113,13 @@ colorscheme solarized
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+highlight LongLineWarning ctermbg=red guibg=red
+match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
+
 " Status Line *****************************************************************
 set showcmd
 set ruler " Show ruler
 set ch=1 " Make command line two lines high
-highlight LongLineWarning ctermbg=red guibg=red
-match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
 
 " Formatter
 set formatprg=par\ -w50
