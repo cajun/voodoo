@@ -161,7 +161,8 @@ augroup END
 
 au! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax 
 
-au BufReadPost *.java exe ":compiler ant"
+au BufReadPost,BufNew *.java exe ":compiler ant"
+au BufReadPost,BufNew *.xml exe ":compiler ant"
 
 set undodir=~/.undo
 set undofile
