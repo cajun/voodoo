@@ -79,3 +79,6 @@
 [submodule "bundle/vim-yard"]
 	path = bundle/vim-yard
 	url = https://github.com/postmodern/vim-yard.git
+[submodule "bundle/vim-bundler"]
+	path = bundle/vim-bundler
+	url = git://github.com/tpope/vim-bundler.git
