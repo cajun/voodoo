@@ -43,3 +43,48 @@
 [submodule "vim-json"]
 	path = vim-json
 	url = https://github.com/vim-scripts/JSON.vim.git
+[submodule "module-surround"]
+	path = module-surround
+	url = http://github.com/tpope/vim-surround.git
+[submodule "module-jslint"]
+	path = module-jslint
+	url = http://github.com/hallettj/jslint.vim.git
+[submodule "module-rails"]
+	path = module-rails
+	url = http://github.com/tpope/vim-rails.git
+[submodule "module-unimpaired"]
+	path = module-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "module-textobj-user"]
+	path = module-textobj-user
+	url = https://github.com/kana/vim-textobj-user.git
+[submodule "module-textobj-rubyblock"]
+	path = module-textobj-rubyblock
+	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule "module-javascript"]
+	path = module-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "module-repeat"]
+	path = module-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "module-gundo"]
+	path = module-gundo
+	url = http://github.com/sjl/gundo.vim.git
+[submodule "module-tablular"]
+	path = module-tablular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "module-solarized"]
+	path = module-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "module-coffee-script"]
+	path = module-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "module-html5"]
+	path = module-html5
+	url = https://github.com/othree/html5.vim.git
+[submodule "module-less"]
+	path = module-less
+	url = https://github.com/groenewege/vim-less
+[submodule "module-JSON"]
+	path = module-JSON
+	url = https://github.com/vim-scripts/JSON.vim.git

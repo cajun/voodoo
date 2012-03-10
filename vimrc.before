@@ -1,0 +1,4 @@
+let mapleader=','  " My Leader key
+
+" Auto reload the .vimrc if it changes
+autocmd! bufwritepost .vimrc source %

@@ -1,0 +1,240 @@
+set nocompatible
+set shell=/bin/bash
+
+filetype off
+
+" Extras ************************************************************************
+set wildmenu " This allows a small menu to appear at the bottom and not a new buffer
+set hidden " Allow you to handle buffers better
+runtime macros/matchit.vim " Mo power for matching with %
+
+set wildignore +=vendor/**,tmp/**
+
+" Tabs ************************************************************************
+
+function! Tabstyle_tabs()
+  " Using 4 column tabs
+  set softtabstop=4
+  set shiftwidth=4
+  set tabstop=4
+  set noexpandtab
+  autocmd User Rails set softtabstop=4
+  autocmd User Rails set shiftwidth=4
+  autocmd User Rails set tabstop=4
+  autocmd User Rails set noexpandtab
+endfunction
+
+
+function! Tabstyle_spaces()
+  " Use 2 spaces
+  set softtabstop=2
+  set shiftwidth=2
+  set tabstop=2
+  set expandtab
+endfunction
+
+call Tabstyle_spaces()
+
+command! -nargs=1 Silent
+      \ | execute ':silent !'. <q-args>
+      \ | execute ':redraw!'
+
+" Indenting *******************************************************************
+set autoindent " Automatically set the indent of a new line (local to buffer)
+set smartindent " smartindent	(local to buffer)
+
+
+" Searching *******************************************************************
+set hlsearch  " highlight search
+set incsearch  " incremental search, search as you type
+set ignorecase " Ignore case when searching
+set smartcase " Ignore case when searching lowercase
+
+
+" Colors **********************************************************************
+set t_Co=16 " 256 colors
+let g:solarized_termcolors=16
+let g:solarized_termtrans=1
+syntax on " syntax highlighting
+
+if has('gui_running')
+  set guioptions -=T
+  set guifont=Anonymous:h22
+else
+endif
+
+set background=dark 
+colorscheme solarized
+
+
+" Match ***********************************************************************
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+
+highlight LongLineWarning ctermbg=red guibg=red
+match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
+
+" Status Line *****************************************************************
+set showcmd
+set ruler " Show ruler
+set ch=1 " Make command line two lines high
+
+" Formatter
+set formatprg=par\ -w50
+
+" Line Wrapping ***************************************************************
+set nowrap
+set linebreak  " Wrap at word
+
+" Mappings ********************************************************************
+com! W :w
+
+map <leader>f :CtrlP<cr>
+map <leader>b :CtrlPBuffer<cr>
+map <leader>B :BuffergatorToggle<cr>
+
+" Helpful copy lines of last search to new window
+nmap <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR><CR>
+
+" Copy and Paste to clipborad
+vmap <C-c> :<Esc>`>a<CR><Esc>mx`<i<CR><Esc>my'xk$v'y!xclip -selection c<CR>u
+map <Insert> :set paste<CR>i<CR><CR><Esc>k:.!xclip -o<CR>JxkJx:set nopaste<CR>
+
+
+autocmd BufReadPre *.pdf set ro nowrap
+autocmd BufReadPost *.pdf silent %!pdftotext "%" -nopgbrk -layout -q -eol unix -
+autocmd BufWritePost *.pdf silent !rm -rf ~/PDF/%
+autocmd BufWritePost *.pdf silent !lp -s -d pdffg "%"
+autocmd BufWritePost *.pdf silent !until [ -e ~/PDF/% ]; do sleep 1; done
+autocmd BufWritePost *.pdf silent !mv ~/PDF/% %:p:h
+
+" Directories *****************************************************************
+
+" File Stuff ******************************************************************
+" To show current filetype use: set filetype
+filetype plugin indent on
+
+set autoread " Auto read when a file is changed from the outside
+
+au! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax 
+
+au BufRead,BufNewFile *.hamlc set filetype=haml
+
+au BufReadPost,BufNew *.java exe ":compiler ant"
+au BufReadPost,BufNew *.xml exe ":compiler ant"
+
+set undodir=~/.undo
+set undofile
+set undolevels=1000
+set undoreload=10000
+
+" Sessions ********************************************************************
+" Sets what is saved when you save a session
+set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
+
+
+" Misc ************************************************************************
+set backspace=indent,eol,start
+set relativenumber " Show line numbers
+set vb t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
+set cursorline
+
+function! g:ToggleNuMode()
+  if( &rnu == 1 )
+    set nu
+  else
+    set rnu
+  endif
+endfunc
+
+nnoremap <C-L> :call g:ToggleNuMode()<cr>
+
+" Invisible characters *********************************************************
+set listchars=trail:.,tab:>-,eol:$
+set nolist
+:noremap ,i :set list!<CR> " Toggle invisible chars
+
+
+" Mouse ***********************************************************************
+"set mouse=a " Enable the mouse
+"behave xterm
+"set selectmode=mouse
+set ttymouse=xterm
+
+
+" Omni Completion *************************************************************
+set ofu=syntaxcomplete#Complete
+
+autocmd FileType html set omnifunc=html5complete#CompleteTags
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+
+" -----------------------------------------------------------------------------
+" |                              Plug-ins                                     |
+" -----------------------------------------------------------------------------
+
+set tags =./tags,./TAGS,tags,TAGS,./tmp/tags,./tmp/TAGS
+
+" autocomplpop ***************************************************************
+" complete option
+set complete=.,w,b,u,i,t,k
+let g:AutoComplPop_CompleteOption = '.,w,b,u,i,t,k'
+let g:AutoComplPop_IgnoreCaseOption = 0
+let g:AutoComplPop_BehaviorKeywordLength = 2
+
+
+nnoremap <F5> :GundoToggle<CR>
+" Tabular
+if exists(":Tabularize")
+  nmap <Leader>x= :Tabularize /=<CR>
+  vmap <Leader>x= :Tabularize /=<CR>
+  nmap <Leader>x: :Tabularize /:\zs<CR>
+  vmap <Leader>x: :Tabularize /:\zs<CR>
+endif
+
+"inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+"
+"function! s:align()
+"  let p = '^\s*|\s.*\s|\s*$'
+"  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+"    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+"    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+"    Tabularize/|/l1
+"    normal! 0
+"    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+"  endif
+"endfunction
+
+" -----------------------------------------------------------------------------
+" |                             OS Specific                                   |
+" |                      (GUI stuff goes in gvimrc)                           |
+" -----------------------------------------------------------------------------
+
+" Mac *************************************************************************
+if has("mac")
+endif
+
+" Windows *********************************************************************
+if has("gui_win32")
+endif
+
+
+
+" -----------------------------------------------------------------------------
+" |                               Startup                                     |
+" -----------------------------------------------------------------------------
+
+"set ep=ruby
+""""""""""""""""""""""""""""""
+" => Statusline
+""""""""""""""""""""""""""""""
+" Always hide the statusline
+"set laststatus=2
+
+" Format the statusline
+let &statusline='%{fugitive#statusline()} %<%f%{&mod?"[+]":""}%r%{&fenc !~ "^$\\|utf-8" || &bomb ? "[".&fenc.(&bomb?"-bom":"")."]" : ""}%=%10.(Line: %l/%L Col: %c%V %P%)'
