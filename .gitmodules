@@ -88,3 +88,6 @@
 [submodule "module-JSON"]
 	path = module-JSON
 	url = https://github.com/vim-scripts/JSON.vim.git
+[submodule "module-tslime"]
+	path = module-tslime
+	url = https://github.com/xaviershay/tslime.vim.git

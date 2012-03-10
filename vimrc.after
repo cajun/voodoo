@@ -1,93 +1,56 @@
-set nocompatible
-set shell=/bin/bash
-
-filetype off
+set nocompatible    " yeah this is VIM not VI
+set shell=/bin/bash " Using zsh or fish keep vim the same
+syntax on           " syntax highlighting
 
 " Extras ************************************************************************
-set wildmenu " This allows a small menu to appear at the bottom and not a new buffer
-set hidden " Allow you to handle buffers better
-runtime macros/matchit.vim " Mo power for matching with %
+set wildmenu                      " This allows a small menu to appear at the bottom and not a new buffer
+set wildmode=list:longest,full    " Sets the type of menu to appear
+set wildignore +=vendor/**,tmp/** " What not to include in the menus
+set hidden                        " Allow you to handle buffers better
+runtime macros/matchit.vim        " Mo power for matching with %
 
-set wildignore +=vendor/**,tmp/**
+" Indenting *******************************************************************
+set autoindent  " Automatically set the indent of a new line (local to buffer)
+set smartindent " smartindent	(local to buffer)
 
-" Tabs ************************************************************************
+" Searching *******************************************************************
+set hlsearch   " highlight search
+set incsearch  " incremental search, search as you type
+set ignorecase " Ignore case when searching
+set smartcase  " Ignore case when searching lowercase
 
-function! Tabstyle_tabs()
-  " Using 4 column tabs
-  set softtabstop=4
-  set shiftwidth=4
-  set tabstop=4
-  set noexpandtab
-  autocmd User Rails set softtabstop=4
-  autocmd User Rails set shiftwidth=4
-  autocmd User Rails set tabstop=4
-  autocmd User Rails set noexpandtab
-endfunction
+" Colors **********************************************************************
+set t_Co=256                   " 256 colors working with OSX Terminal
+let g:solarized_termcolors=256 " Use as many as we can
+let g:solarized_termtrans=1    " Transparency when we can
+set background=dark            " Use Dark instead of Light version
+colorscheme solarized          " Solarized is NICE
 
+" Status Line *****************************************************************
+set showcmd     " we like it
+set ruler       " Show ruler
+set cmdheight=1 " Make command line one lines high
 
-function! Tabstyle_spaces()
-  " Use 2 spaces
-  set softtabstop=2
-  set shiftwidth=2
-  set tabstop=2
-  set expandtab
-endfunction
+" File Issues ***********************************************************************
+highlight ExtraWhitespace ctermbg=red guibg=red
+highlight LongLine ctermbg=yellow guibg=red
 
-call Tabstyle_spaces()
+autocmd BufWinEnter * let w:m2=matchadd('LongLine', '\%>120v.\+', -1)
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" Formatter
+set formatprg=par\ -w50
+
+" Mappings ********************************************************************
+com! W :w
 
 command! -nargs=1 Silent
       \ | execute ':silent !'. <q-args>
       \ | execute ':redraw!'
 
-" Indenting *******************************************************************
-set autoindent " Automatically set the indent of a new line (local to buffer)
-set smartindent " smartindent	(local to buffer)
-
-
-" Searching *******************************************************************
-set hlsearch  " highlight search
-set incsearch  " incremental search, search as you type
-set ignorecase " Ignore case when searching
-set smartcase " Ignore case when searching lowercase
-
-
-" Colors **********************************************************************
-set t_Co=16 " 256 colors
-let g:solarized_termcolors=16
-let g:solarized_termtrans=1
-syntax on " syntax highlighting
-
-if has('gui_running')
-  set guioptions -=T
-  set guifont=Anonymous:h22
-else
-endif
-
-set background=dark 
-colorscheme solarized
-
-
-" Match ***********************************************************************
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-
-highlight LongLineWarning ctermbg=red guibg=red
-match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
-
-" Status Line *****************************************************************
-set showcmd
-set ruler " Show ruler
-set ch=1 " Make command line two lines high
-
-" Formatter
-set formatprg=par\ -w50
-
-" Line Wrapping ***************************************************************
-set nowrap
-set linebreak  " Wrap at word
-
-" Mappings ********************************************************************
-com! W :w
 
 map <leader>f :CtrlP<cr>
 map <leader>b :CtrlPBuffer<cr>
@@ -108,21 +71,20 @@ autocmd BufWritePost *.pdf silent !lp -s -d pdffg "%"
 autocmd BufWritePost *.pdf silent !until [ -e ~/PDF/% ]; do sleep 1; done
 autocmd BufWritePost *.pdf silent !mv ~/PDF/% %:p:h
 
-" Directories *****************************************************************
-
 " File Stuff ******************************************************************
 " To show current filetype use: set filetype
 filetype plugin indent on
 
 set autoread " Auto read when a file is changed from the outside
 
-au! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax 
-
+au! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax
 au BufRead,BufNewFile *.hamlc set filetype=haml
 
+" Android Development
 au BufReadPost,BufNew *.java exe ":compiler ant"
 au BufReadPost,BufNew *.xml exe ":compiler ant"
 
+" Super undo powers
 set undodir=~/.undo
 set undofile
 set undolevels=1000
@@ -136,18 +98,8 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 " Misc ************************************************************************
 set backspace=indent,eol,start
 set relativenumber " Show line numbers
-set vb t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
-set cursorline
-
-function! g:ToggleNuMode()
-  if( &rnu == 1 )
-    set nu
-  else
-    set rnu
-  endif
-endfunc
-
-nnoremap <C-L> :call g:ToggleNuMode()<cr>
+set vb t_vb=       " Turn off bell, this could be more annoying, but I'm not sure how
+set cursorline     " Love this feature  Hightlight current line
 
 " Invisible characters *********************************************************
 set listchars=trail:.,tab:>-,eol:$
@@ -156,8 +108,7 @@ set nolist
 
 
 " Mouse ***********************************************************************
-"set mouse=a " Enable the mouse
-"behave xterm
+set mouse=a " Enable the mouse
 "set selectmode=mouse
 set ttymouse=xterm
 
@@ -174,10 +125,7 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 
-" -----------------------------------------------------------------------------
-" |                              Plug-ins                                     |
-" -----------------------------------------------------------------------------
-
+" Where to look for tags
 set tags =./tags,./TAGS,tags,TAGS,./tmp/tags,./tmp/TAGS
 
 " autocomplpop ***************************************************************
@@ -197,44 +145,5 @@ if exists(":Tabularize")
   vmap <Leader>x: :Tabularize /:\zs<CR>
 endif
 
-"inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-"
-"function! s:align()
-"  let p = '^\s*|\s.*\s|\s*$'
-"  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-"    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-"    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-"    Tabularize/|/l1
-"    normal! 0
-"    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-"  endif
-"endfunction
-
-" -----------------------------------------------------------------------------
-" |                             OS Specific                                   |
-" |                      (GUI stuff goes in gvimrc)                           |
-" -----------------------------------------------------------------------------
-
-" Mac *************************************************************************
-if has("mac")
-endif
-
-" Windows *********************************************************************
-if has("gui_win32")
-endif
-
-
-
-" -----------------------------------------------------------------------------
-" |                               Startup                                     |
-" -----------------------------------------------------------------------------
-
-"set ep=ruby
-""""""""""""""""""""""""""""""
-" => Statusline
-""""""""""""""""""""""""""""""
-" Always hide the statusline
-"set laststatus=2
-
 " Format the statusline
-let &statusline='%{fugitive#statusline()} %<%f%{&mod?"[+]":""}%r%{&fenc !~ "^$\\|utf-8" || &bomb ? "[".&fenc.(&bomb?"-bom":"")."]" : ""}%=%10.(Line: %l/%L Col: %c%V %P%)'
+let &statusline='%{fugitive#statusline()} %<%f%{&mod?"[+]":""}%r%{&fenc !~ "^$\\|utf-8" || &bomb ? "[".&fenc.(&bomb?"-bom":"")."]" : ""}%=%10.(Line: %l/%L Col: %c%V %P%)%#warningmsg#%{SyntasticStatuslineFlag()}'
