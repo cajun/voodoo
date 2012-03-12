@@ -91,3 +91,6 @@
 [submodule "module-tslime"]
 	path = module-tslime
 	url = https://github.com/xaviershay/tslime.vim.git
+[submodule "module-numbertoggle"]
+	path = module-numbertoggle
+	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git

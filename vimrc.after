@@ -3,11 +3,11 @@ set shell=/bin/bash " Using zsh or fish keep vim the same
 syntax on           " syntax highlighting
 
 " Extras ************************************************************************
-set wildmenu                      " This allows a small menu to appear at the bottom and not a new buffer
-set wildmode=list:longest,full    " Sets the type of menu to appear
-set wildignore +=vendor/**,tmp/** " What not to include in the menus
-set hidden                        " Allow you to handle buffers better
-runtime macros/matchit.vim        " Mo power for matching with %
+set wildmenu                            " This allows a small menu to appear at the bottom and not a new buffer
+set wildmode=longest,full          " Sets the type of menu to appear
+set wildignore +=vendor/**,tmp/**,*.log " What not to include in the menus
+set hidden                              " Allow you to handle buffers better
+runtime macros/matchit.vim              " Mo power for matching with %
 
 " Indenting *******************************************************************
 set autoindent  " Automatically set the indent of a new line (local to buffer)
@@ -54,7 +54,9 @@ command! -nargs=1 Silent
 
 map <leader>f :CtrlP<cr>
 map <leader>b :CtrlPBuffer<cr>
+map <leader>m :CtrlPMRU<cr>
 map <leader>B :BuffergatorToggle<cr>
+
 
 " Helpful copy lines of last search to new window
 nmap <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR><CR>
@@ -144,6 +146,18 @@ if exists(":Tabularize")
   nmap <Leader>x: :Tabularize /:\zs<CR>
   vmap <Leader>x: :Tabularize /:\zs<CR>
 endif
+
+if exists(":CtrlP")
+  let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript']
+  let g:ctrlp_user_command = {
+    \ 'types': {
+      \ 1: ['.git/', 'cd %s && git ls-files'],
+      \ 2: ['.hg/', 'hg --cwd %s locate -I .'],
+      \ },
+    \ 'fallback': 'find %s -type f'
+    \ }
+endif
+
 
 " Format the statusline
 let &statusline='%{fugitive#statusline()} %<%f%{&mod?"[+]":""}%r%{&fenc !~ "^$\\|utf-8" || &bomb ? "[".&fenc.(&bomb?"-bom":"")."]" : ""}%=%10.(Line: %l/%L Col: %c%V %P%)%#warningmsg#%{SyntasticStatuslineFlag()}'
