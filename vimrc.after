@@ -4,10 +4,12 @@ syntax on           " syntax highlighting
 
 " Extras ************************************************************************
 set wildmenu                            " This allows a small menu to appear at the bottom and not a new buffer
-set wildmode=longest,full          " Sets the type of menu to appear
+set wildmode=longest,full               " Sets the type of menu to appear
 set wildignore +=vendor/**,tmp/**,*.log " What not to include in the menus
 set hidden                              " Allow you to handle buffers better
 runtime macros/matchit.vim              " Mo power for matching with %
+set splitright                          " Set Default split to right
+set splitbelow                          " Set Default split to below
 
 " Indenting *******************************************************************
 set autoindent  " Automatically set the indent of a new line (local to buffer)
@@ -147,6 +149,7 @@ if exists(":Tabularize")
   vmap <Leader>x: :Tabularize /:\zs<CR>
 endif
 
+" CtrlP
 if exists(":CtrlP")
   let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript']
   let g:ctrlp_user_command = {
@@ -158,6 +161,10 @@ if exists(":CtrlP")
     \ }
 endif
 
+" CtrlP
+if exists(":NERDTree")
+  let g:NERDTreeWinPos = "right"
+endif
 
 " Format the statusline
 let &statusline='%{fugitive#statusline()} %<%f%{&mod?"[+]":""}%r%{&fenc !~ "^$\\|utf-8" || &bomb ? "[".&fenc.(&bomb?"-bom":"")."]" : ""}%=%10.(Line: %l/%L Col: %c%V %P%)%#warningmsg#%{SyntasticStatuslineFlag()}'
