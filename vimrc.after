@@ -9,7 +9,6 @@ set wildignore +=vendor/**,tmp/**,*.log " What not to include in the menus
 set hidden                              " Allow you to handle buffers better
 runtime macros/matchit.vim              " Mo power for matching with %
 set splitright                          " Set Default split to right
-set splitbelow                          " Set Default split to below
 
 " Indenting *******************************************************************
 set autoindent  " Automatically set the indent of a new line (local to buffer)
@@ -108,7 +107,7 @@ set cursorline     " Love this feature  Hightlight current line
 " Invisible characters *********************************************************
 set listchars=trail:.,tab:>-,eol:$
 set nolist
-:noremap ,i :set list!<CR> " Toggle invisible chars
+map <Leader>i :set list!<CR> " Toggle invisible chars
 
 
 " Mouse ***********************************************************************

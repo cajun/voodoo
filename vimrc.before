@@ -1,3 +1,2 @@
-let mapleader=','  " My Leader key
-
-set nowrap                              " Don't wrap the line
+let mapleader=',' " My Leader key
+set nowrap        " Don't wrap the line
