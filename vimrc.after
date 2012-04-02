@@ -1,24 +1,25 @@
-set nocompatible    " yeah this is VIM not VI
+"set nocompatible    " yeah this is VIM not VI
 set shell=/bin/bash " Using zsh or fish keep vim the same
-syntax on           " syntax highlighting
+"syntax on           " syntax highlighting
 
 " Extras ************************************************************************
-set wildmenu                            " This allows a small menu to appear at the bottom and not a new buffer
-set wildmode=longest,full               " Sets the type of menu to appear
-set wildignore +=vendor/**,tmp/**,*.log " What not to include in the menus
-set hidden                              " Allow you to handle buffers better
-runtime macros/matchit.vim              " Mo power for matching with %
+"set wildmenu                            " This allows a small menu to appear at the bottom and not a new buffer
+set wildmode=list:full                   " Sets the type of menu to appear
+"set wildignore +=vendor/**,tmp/**,*.log " What not to include in the menus
+"set hidden                              " Allow you to handle buffers better
+"runtime macros/matchit.vim              " Mo power for matching with %
 set splitright                          " Set Default split to right
+set nowrap                              " Please don't wrap lines
 
 " Indenting *******************************************************************
-set autoindent  " Automatically set the indent of a new line (local to buffer)
-set smartindent " smartindent	(local to buffer)
+"set autoindent  " Automatically set the indent of a new line (local to buffer)
+"set smartindent " smartindent	(local to buffer)
 
 " Searching *******************************************************************
-set hlsearch   " highlight search
-set incsearch  " incremental search, search as you type
-set ignorecase " Ignore case when searching
-set smartcase  " Ignore case when searching lowercase
+"set hlsearch   " highlight search
+"set incsearch  " incremental search, search as you type
+"set ignorecase " Ignore case when searching
+"set smartcase  " Ignore case when searching lowercase
 
 " Colors **********************************************************************
 set t_Co=256                   " 256 colors working with OSX Terminal
@@ -28,9 +29,9 @@ set background=dark            " Use Dark instead of Light version
 colorscheme solarized          " Solarized is NICE
 
 " Status Line *****************************************************************
-set showcmd     " we like it
-set ruler       " Show ruler
-set cmdheight=1 " Make command line one lines high
+"set showcmd     " we like it
+"set ruler       " Show ruler
+"set cmdheight=1 " Make command line one lines high
 
 " File Issues ***********************************************************************
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -76,11 +77,11 @@ autocmd BufWritePost *.pdf silent !mv ~/PDF/% %:p:h
 
 " File Stuff ******************************************************************
 " To show current filetype use: set filetype
-filetype plugin indent on
+"filetype plugin indent on
 
-set autoread " Auto read when a file is changed from the outside
+"set autoread " Auto read when a file is changed from the outside
 
-au! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax
+"au! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax
 au BufRead,BufNewFile *.hamlc set filetype=haml
 
 " Android Development
@@ -95,48 +96,48 @@ set undoreload=10000
 
 " Sessions ********************************************************************
 " Sets what is saved when you save a session
-set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
+"set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 
 
 " Misc ************************************************************************
-set backspace=indent,eol,start
-set relativenumber " Show line numbers
-set vb t_vb=       " Turn off bell, this could be more annoying, but I'm not sure how
+"set backspace=indent,eol,start
+"set relativenumber " Show line numbers
+"set vb t_vb=       " Turn off bell, this could be more annoying, but I'm not sure how
 set cursorline     " Love this feature  Hightlight current line
 
 " Invisible characters *********************************************************
-set listchars=trail:.,tab:>-,eol:$
-set nolist
-map <Leader>i :set list!<CR> " Toggle invisible chars
+"set listchars=trail:.,tab:>-,eol:$
+"set nolist
+"map <Leader>i :set list!<CR> " Toggle invisible chars
 
 
 " Mouse ***********************************************************************
-set mouse=a " Enable the mouse
+"set mouse=a " Enable the mouse
 "set selectmode=mouse
-set ttymouse=xterm
+"set ttymouse=xterm
 
 
 " Omni Completion *************************************************************
-set ofu=syntaxcomplete#Complete
+"set ofu=syntaxcomplete#Complete
 
-autocmd FileType html set omnifunc=html5complete#CompleteTags
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+"autocmd FileType html set omnifunc=html5complete#CompleteTags
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+"autocmd FileType c set omnifunc=ccomplete#Complete
+"autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 
 " Where to look for tags
-set tags =./tags,./TAGS,tags,TAGS,./tmp/tags,./tmp/TAGS
+"set tags =./tags,./TAGS,tags,TAGS,./tmp/tags,./tmp/TAGS
 
 " autocomplpop ***************************************************************
 " complete option
-set complete=.,w,b,u,i,t,k
-let g:AutoComplPop_CompleteOption = '.,w,b,u,i,t,k'
-let g:AutoComplPop_IgnoreCaseOption = 0
-let g:AutoComplPop_BehaviorKeywordLength = 2
+"set complete=.,w,b,u,i,t,k
+"let g:AutoComplPop_CompleteOption = '.,w,b,u,i,t,k'
+"let g:AutoComplPop_IgnoreCaseOption = 0
+"let g:AutoComplPop_BehaviorKeywordLength = 2
 
 
 nnoremap <F5> :GundoToggle<CR>
