@@ -25,12 +25,12 @@
 [submodule "module-html5"]
 	path = module-html5
 	url = https://github.com/othree/html5.vim.git
-[submodule "module-tslime"]
-	path = module-tslime
-	url = https://github.com/xaviershay/tslime.vim.git
 [submodule "module-numbertoggle"]
 	path = module-numbertoggle
 	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
 [submodule "module-latex"]
 	path = module-latex
 	url = https://github.com/vim-scripts/LaTeX-Suite-aka-Vim-LaTeX.git
+[submodule "module-vimux"]
+	path = module-vimux
+	url = https://github.com/vim-scripts/vimux.git
