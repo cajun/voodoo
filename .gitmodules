@@ -31,6 +31,6 @@
 [submodule "module-numbertoggle"]
 	path = module-numbertoggle
 	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
-[submodule "module-rbrepl"]
-	path = module-rbrepl
-	url = https://github.com/Bogdanp/rbrepl.vim.git
+[submodule "module-latex"]
+	path = module-latex
+	url = https://github.com/vim-scripts/LaTeX-Suite-aka-Vim-LaTeX.git
