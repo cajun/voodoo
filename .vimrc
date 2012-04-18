@@ -49,7 +49,6 @@ Bundle 'SuperTab-continued.'
 Bundle 'SuperTab'
 Bundle 'Tagbar'
 Bundle 'delimitMate.vim'
-Bundle 'Buffergator'
 Bundle 'vimux'
 Bundle 'vroom'
 " }}}
@@ -267,7 +266,7 @@ map Y y$
 
 " clear highlight after search
 noremap <silent><Leader>/ :nohls<CR>
-:noremap ,i :set list!<CR> " Toggle invisible chars
+map ,i :set list!<CR> " Toggle invisible chars
 
 
 " }}}
@@ -296,9 +295,15 @@ set ttimeoutlen=10
 
 " _ backups {{{
 set undodir=~/.vim/tmp/undo/     " undo files
+" NOTE: must move to this dir
+"set undodir=~/.undo
 set backupdir=~/.vim/tmp/backup/ " backups
 set directory=~/.vim/tmp/swap/   " swap files
 set backup
+
+set undofile
+set undolevels=1000
+set undoreload=10000
 " _ }}}
 
 set modelines=0
@@ -512,7 +517,7 @@ nmap <leader>t :TagbarToggle<CR>
 "let g:miniBufExplorerMoreThanOne = 100
 "let g:miniBufExplUseSingleClick = 1
 "nmap <Leader>B :MiniBufExplorer<cr>
-nmap <Leader>B :BuffergatorToggle<cr>
+nmap <leader><C-b> :BuffergatorToggle<cr>
 
 " yankring
 let g:yankring_replace_n_pkey = '<leader>['
@@ -532,10 +537,10 @@ nmap <Leader>x: :Tabularize /:\zs<CR>
 vmap <Leader>x: :Tabularize /:\zs<CR>
 
 " ,f for global git serach for word under the cursor (with highlight)
-"nmap <leader>gf :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
+nmap <leader>gf :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
 
 " same in visual mode
-":vmap <leader>gf y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
+:vmap <leader>gf y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
 
 
 " vim-indentobject
@@ -574,19 +579,19 @@ let g:Powerline_cache_enabled = 1
 
 " _ Scratch {{{
 
-command! ScratchToggle call ScratchToggle()
+"command! ScratchToggle call ScratchToggle()
 
-function! ScratchToggle()
-    if exists("w:is_scratch_window")
-        unlet w:is_scratch_window
-        exec "q"
-    else
-        exec "normal! :Sscratch\<cr>\<C-W>J:resize 13\<cr>"
-        let w:is_scratch_window = 1
-    endif
-endfunction
+"function! ScratchToggle()
+    "if exists("w:is_scratch_window")
+        "unlet w:is_scratch_window
+        "exec "q"
+    "else
+        "exec "normal! :Sscratch\<cr>\<C-W>J:resize 13\<cr>"
+        "let w:is_scratch_window = 1
+    "endif
+"endfunction
 
-nnoremap <silent> <leader><tab> :ScratchToggle<cr>
+"nnoremap <silent> <leader><tab> :ScratchToggle<cr>
 
 " }}}
 
