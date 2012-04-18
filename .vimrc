@@ -4,7 +4,7 @@
 "
 " Have fun!
 "
-
+" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 set nocompatible
 filetype off
 
@@ -30,7 +30,10 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/vim-space'
 Bundle 'scrooloose/syntastic'
-"Bundle 'msanders/snipmate.vim'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "snipmate-snippets"
+Bundle "garbas/vim-snipmate"
 Bundle 'sjl/threesome.vim'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'kana/vim-textobj-user'
@@ -51,6 +54,7 @@ Bundle 'Tagbar'
 Bundle 'delimitMate.vim'
 Bundle 'vimux'
 Bundle 'vroom'
+Bundle 'css_color.vim'
 " }}}
 
 " Haskell {{{
@@ -281,6 +285,7 @@ set hidden
 set history=1000
 set incsearch
 set laststatus=2
+set cursorline
 "set list
 
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
@@ -356,13 +361,13 @@ au InsertLeave * :set relativenumber
 
 " Cursorline {{{
 " Only show cursorline in the current window and in normal mode.
-augroup cline
-    au!
-    au WinLeave * set nocursorline
-    au WinEnter * set cursorline
-    au InsertEnter * set nocursorline
-    au InsertLeave * set cursorline
-augroup END
+"augroup cline
+    "au!
+    "au WinLeave * set nocursorline
+    "au WinEnter * set cursorline
+    "au InsertEnter * set nocursorline
+    "au InsertLeave * set cursorline
+"augroup END
 " }}}
 
 " Trailing whitespace {{{
