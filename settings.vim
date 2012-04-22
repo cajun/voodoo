@@ -14,8 +14,6 @@ hi! link ShowMarksHLu LineNr
 hi! link ShowMarksHLo LineNr
 hi! link ShowMarksHLm LineNr
 
-" }}}
-
 " Colors {{{
 set t_Co=256                   " 256 colors working with OSX Terminal
 let g:solarized_termcolors=256 " Use as many as we can
@@ -40,6 +38,17 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 " }}}
 
+" Temp Files {{{
+set undodir=~/.vim/tmp/undo/     " undo files
+set backupdir=~/.vim/tmp/backup/ " backups
+set directory=~/.vim/tmp/swap/   " swap files
+set backup
+
+set undofile
+set undolevels=1000
+set undoreload=10000
+" }}}
+
 " Settings {{{
 set autoread
 set backspace=indent,eol,start
@@ -51,7 +60,6 @@ set history=1000
 set incsearch
 set laststatus=2
 set cursorline
-"set list
 
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set nolist
@@ -61,16 +69,6 @@ set notimeout
 set ttimeout
 set ttimeoutlen=10
 
-" Temp Files {{{
-set undodir=~/.vim/tmp/undo/     " undo files
-set backupdir=~/.vim/tmp/backup/ " backups
-set directory=~/.vim/tmp/swap/   " swap files
-set backup
-
-set undofile
-set undolevels=1000
-set undoreload=10000
-" }}}
 
 set modelines=0
 set noeol
@@ -84,6 +82,16 @@ set matchtime=2
 
 set completeopt=longest,menuone,preview
 
+
+set visualbell
+
+set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc
+set wildmenu
+set nowrap
+
+set dictionary=/usr/share/dict/words
+" }}}
+
 " White characters {{{
 set autoindent
 set tabstop=2
@@ -94,15 +102,6 @@ set expandtab
 set wrap
 set formatoptions=qrn1
 set colorcolumn=+1
-" }}}
-
-set visualbell
-
-set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc
-set wildmenu
-set nowrap
-
-set dictionary=/usr/share/dict/words
 " }}}
 
 " Triggers {{{

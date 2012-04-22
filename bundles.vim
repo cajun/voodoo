@@ -38,13 +38,13 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'vimwiki'
 Bundle 'jslint.vim'
 Bundle 'Gundo'
-Bundle 'SuperTab-continued.'
 Bundle 'SuperTab'
 Bundle 'Tagbar'
 Bundle 'delimitMate.vim'
 Bundle 'vimux'
 Bundle 'vroom'
-Bundle 'css_color.vim'
+Bundle 'ap/vim-css-color'
+
 " }}}
 
 " Colors {{{
