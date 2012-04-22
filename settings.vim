@@ -4,6 +4,7 @@ set formatprg=par\ -w50
 " Where to look for tags
 set tags =./tags,./TAGS,tags,TAGS,./tmp/tags,./tmp/TAGS
 
+set splitright
 let mapleader = ","
 let maplocalleader = "\\"
 "
@@ -56,7 +57,7 @@ set autoread
 set backspace=indent,eol,start
 set binary
 set cinoptions=:0,(s,u0,U1,g0,t0
-set completeopt=menuone,preview
+set completeopt=longest,menuone,preview
 set hidden
 set history=1000
 set incsearch
@@ -71,7 +72,6 @@ set notimeout
 set ttimeout
 set ttimeoutlen=10
 
-
 set modelines=0
 set noeol
 set relativenumber
@@ -82,14 +82,12 @@ set showcmd
 
 set matchtime=2
 
-set completeopt=longest,menuone,preview
-
-
 set visualbell
 
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc
 set wildmenu
-set nowrap
+"set nowrap
+set wrap
 
 set dictionary=/usr/share/dict/words
 " }}}
