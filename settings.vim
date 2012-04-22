@@ -60,7 +60,8 @@ set cinoptions=:0,(s,u0,U1,g0,t0
 set completeopt=longest,menuone,preview
 set hidden
 set history=1000
-set incsearch
+"set incsearch
+set hlsearch
 set laststatus=2
 set cursorline
 
