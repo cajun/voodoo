@@ -14,6 +14,8 @@ hi! link ShowMarksHLu LineNr
 hi! link ShowMarksHLo LineNr
 hi! link ShowMarksHLm LineNr
 
+" }}}
+
 " Colors {{{
 set t_Co=256                   " 256 colors working with OSX Terminal
 let g:solarized_termcolors=256 " Use as many as we can
