@@ -5,12 +5,12 @@
 set nocompatible
 filetype off
 
-source ~/.janus/bundles.vim
-source ~/.janus/settings.vim
-source ~/.janus/completions.vim
-source ~/.janus/mappings.vim
+source ~/.vim/bundles.vim
+source ~/.vim/settings.vim
+source ~/.vim/completions.vim
+source ~/.vim/mappings.vim
 
-for f in split(glob('~/.janus/settings/*.vim'), '\n')
+for f in split(glob('~/.vim/settings/*.vim'), '\n')
   exe 'source' f
 endfor
 
