@@ -3,3 +3,5 @@
 .netrwhist
 *.o
 *.log
+bundle
+tmp
