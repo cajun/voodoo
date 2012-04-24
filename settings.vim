@@ -1,10 +1,12 @@
 " General {{{
 filetype plugin indent on
-set formatprg=par\ -w50
+set formatprg=par\ -fw50
 " Where to look for tags
 set tags =./tags,./TAGS,tags,TAGS,./tmp/tags,./tmp/TAGS
 
 set splitright
+set spell
+
 let mapleader = ","
 let maplocalleader = "\\"
 "
@@ -69,9 +71,9 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set nolist
 set showbreak=↪
 
-set notimeout
+"set notimeout
 set ttimeout
-set ttimeoutlen=10
+set ttimeoutlen=1
 
 set modelines=0
 set noeol

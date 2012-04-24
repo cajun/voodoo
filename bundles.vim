@@ -6,6 +6,7 @@ Bundle 'gmarik/vundle'
 
 " General {{{
 Bundle 'mileszs/ack.vim'
+Bundle 'vim-coffee-script'
 Bundle 'Tabular'
 Bundle 'fugitive.vim'
 Bundle 'tpope/vim-endwise'
@@ -44,6 +45,7 @@ Bundle 'delimitMate.vim'
 Bundle 'vimux'
 Bundle 'vroom'
 Bundle 'ap/vim-css-color'
+Bundle 'Rename2'
 
 " }}}
 
