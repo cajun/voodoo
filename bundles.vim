@@ -1,13 +1,12 @@
-" Vundle
+" Vundle =======================================================================
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-"" Bundles
+" Bundles ======================================================================
 Bundle 'vim-coffee-script'
 Bundle 'Tabular'
-Bundle 'fugitive.vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-haml'
