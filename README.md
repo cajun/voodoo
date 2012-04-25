@@ -13,7 +13,7 @@ without further adieu I give you configuration.
 ## Quick install
 ``curl https://raw.github.com/cajun/dot_vim/master/install.sh | bash``
 
-## Included Plugins
+# Included Plugins
 
 ## vim-coffee-script
 ## Tabular
