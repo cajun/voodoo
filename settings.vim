@@ -3,8 +3,8 @@ filetype plugin indent on
 set formatprg=par\ -fw50
 set tags =./tags,./TAGS,tags,TAGS,./tmp/tags,./tmp/TAGS " Where to look for tags
 
-set splitright
-set spell
+set splitright " Always open splits to the right
+set spell      " set vim to spell cause i can't
 
 let mapleader = ","
 let maplocalleader = "\\"
@@ -45,20 +45,19 @@ endif
 set undodir=~/.vim/tmp/undo/     " undo files
 set backupdir=~/.vim/tmp/backup/ " backups
 set directory=~/.vim/tmp/swap/   " swap files
-set backup
-
-set undofile
-set undolevels=1000
+set backup                       " turn on backups
+set undofile                     " turn on undos vim 7.3 feature
+set undolevels=1000              " how much you can undo
 set undoreload=10000
 
 " Settings =====================================================================
-set autoread
-set backspace=indent,eol,start
-set completeopt=longest,menuone,preview
-set hidden
-set hlsearch
-set laststatus=2
-set cursorline
+set autoread                            " if the buffer changes reload it
+set backspace=indent,eol,start          " handle backspace char
+set completeopt=longest,menuone,preview " what the complete menu looks like
+set hidden                              " handle hidden stuff better
+set hlsearch                            " highlight the search
+set laststatus=2                        " Keep the status line on all windows
+set cursorline                          " highlight the current line
 
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set nolist
@@ -76,7 +75,6 @@ set shell=/bin/bash
 set showcmd
 
 set matchtime=2
-
 set visualbell
 
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc
