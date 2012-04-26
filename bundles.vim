@@ -1,3 +1,6 @@
+set nocompatible
+filetype off
+
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -32,3 +35,4 @@ Bundle 'delimitMate.vim'
 Bundle 'ap/vim-css-color'
 Bundle 'Rename2'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'jshint.vim'
