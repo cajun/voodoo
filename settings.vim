@@ -30,6 +30,10 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " Temp Files ===================================================================
+if( !isdirectory($HOME . '/.vim/tmp') )
+  call mkdir($HOME . '/.vim/tmp', 'p')
+endif
+
 if( !isdirectory($HOME . '/.vim/tmp/undo') )
   call mkdir($HOME . '/.vim/tmp/undo', 'p')
 endif
