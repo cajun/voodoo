@@ -59,7 +59,7 @@ set ttimeoutlen=10
 set modelines=0
 set noeol
 set relativenumber
-set numberwidth=10
+set numberwidth=6
 set shell=/bin/bash
 set showcmd
 
