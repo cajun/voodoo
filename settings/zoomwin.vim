@@ -1,1 +1,1 @@
-map <leader> zw :ZoomWin
+map <leader>zw :ZoomWin<CR>
