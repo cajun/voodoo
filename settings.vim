@@ -30,18 +30,6 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " Temp Files ===================================================================
-if( !isdirectory($HOME . '/.vim/tmp/undo') )
-  call mkdir($HOME . '/.vim/tmp/undo', 'p')
-endif
-
-if( !isdirectory($HOME . '/.vim/tmp/backup') )
-  call mkdir($HOME . '/.vim/tmp/backup', 'p')
-endif
-
-if( !isdirectory($HOME . '/.vim/tmp/swap') )
-  call mkdir($HOME . '/.vim/tmp/swap', 'p')
-endif
-
 set undodir=~/.vim/tmp/undo/     " undo files
 set backupdir=~/.vim/tmp/backup/ " backups
 set directory=~/.vim/tmp/swap/   " swap files
@@ -50,7 +38,7 @@ set undofile                     " turn on undos vim 7.3 feature
 set undolevels=1000              " how much you can undo
 set undoreload=10000
 
-" Settings =====================================================================
+                                        " Settings =====================================================================
 set autoread                            " if the buffer changes reload it
 set backspace=indent,eol,start          " handle backspace char
 set completeopt=longest,menuone,preview " what the complete menu looks like
@@ -58,6 +46,7 @@ set hidden                              " handle hidden stuff better
 set hlsearch                            " highlight the search
 set laststatus=2                        " Keep the status line on all windows
 set cursorline                          " highlight the current line
+set scrolloff=4                         " scroll when within 4 lines
 
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set nolist
@@ -70,7 +59,7 @@ set ttimeoutlen=10
 set modelines=0
 set noeol
 set relativenumber
-set numberwidth=10
+set numberwidth=6
 set shell=/bin/bash
 set showcmd
 
@@ -99,6 +88,8 @@ autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
 autocmd BufRead,BufNewFile *.hamlc set filetype=haml
+
+autocmd BufRead * :silent! %s/\v\s+$//
 
 " Android Development ==========================================================
 autocmd BufReadPost,BufNew *.java exe ":compiler ant"
