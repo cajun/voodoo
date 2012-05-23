@@ -7,6 +7,7 @@ filetype off
 
 source ~/.vim/bundles.vim
 source ~/.vim/settings.vim
+source ~/.vim/autocommands.vim
 source ~/.vim/completions.vim
 source ~/.vim/mappings.vim
 

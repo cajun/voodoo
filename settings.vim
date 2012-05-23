@@ -34,13 +34,13 @@ set undofile                     " turn on undos vim 7.3 feature
 set undolevels=1000              " how much you can undo
 set undoreload=10000
 
-                                        " Settings =====================================================================
+" Settings =====================================================================
 set autoread                            " if the buffer changes reload it
 set backspace=indent,eol,start          " handle backspace char
 set completeopt=longest,menuone,preview " what the complete menu looks like
 set hidden                              " handle hidden stuff better
 set hlsearch                            " highlight the search
-set incsearch                           " highlight the search
+set incsearch                           " highlight the search real-time
 set laststatus=2                        " Keep the status line on all windows
 set cursorline                          " highlight the current line
 set scrolloff=4                         " scroll when within 4 lines
