@@ -16,4 +16,4 @@ for f in split(glob('~/.vim/settings/*.vim'), '\n')
 endfor
 
 " section for trying to focus on visual selection
-
+silent !source ~/.vim/update.sh 2>&1 &
