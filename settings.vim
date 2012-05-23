@@ -41,9 +41,16 @@ set completeopt=longest,menuone,preview " what the complete menu looks like
 set hidden                              " handle hidden stuff better
 set hlsearch                            " highlight the search
 set incsearch                           " highlight the search real-time
+
 set laststatus=2                        " Keep the status line on all windows
 set cursorline                          " highlight the current line
-set scrolloff=4                         " scroll when within 4 lines
+set scrolloff=4                         " scroll when within 4 lines above/below
+set sidescrolloff=5                     " scroll when within 5 lines left/right
+set ttyfast                             " the console is fast so use it
+
+set noerrorbells
+set visualbell t_vb=
+set lazyredraw
 
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set nolist
@@ -59,8 +66,9 @@ set relativenumber
 set numberwidth=6
 set shell=/bin/bash
 set showcmd
+set showmatch
 
-set matchtime=2
+set matchtime=5 " blink match chars for .x seconds
 
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc
 set wildmenu
@@ -77,3 +85,4 @@ set softtabstop=2
 set expandtab
 set formatoptions=qrn1
 set colorcolumn=+1
+
