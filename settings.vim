@@ -24,13 +24,6 @@ highlight Search ctermbg=black ctermfg=yellow guibg=black guifg=yellow cterm=und
 highlight ExtraWhitespace ctermbg=red guibg=red
 highlight LongLine ctermbg=yellow guibg=red
 
-autocmd BufWinEnter * let w:m2=matchadd('LongLine', '\%>120v.\+', -1)
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
-au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
 " Temp Files ===================================================================
 set undodir=~/.vim/tmp/undo/     " undo files
@@ -68,7 +61,6 @@ set shell=/bin/bash
 set showcmd
 
 set matchtime=2
-set visualbell
 
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc
 set wildmenu
@@ -85,18 +77,3 @@ set softtabstop=2
 set expandtab
 set formatoptions=qrn1
 set colorcolumn=+1
-
-" Triggers =====================================================================
-autocmd FocusLost    * :set number
-autocmd FocusGained  * :set relativenumber
-
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
-
-autocmd BufRead,BufNewFile *.hamlc set filetype=haml
-
-autocmd BufRead * :silent! %s/\v\s+$//
-
-" Android Development ==========================================================
-autocmd BufReadPost,BufNew *.java exe ":compiler ant"
-autocmd BufReadPost,BufNew *.xml exe ":compiler ant"
