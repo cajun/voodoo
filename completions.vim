@@ -14,7 +14,7 @@ autocmd FileType c          set omnifunc=ccomplete#Complete
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 
 " Auto Complete ================================================================
-set complete=.,w,b,u,i,t,d
-let g:AutoComplPop_CompleteOption = '.,w,b,u,i,t,d'
+set complete=.,w,b,u,U,i,t,d
+let g:AutoComplPop_CompleteOption = '.,w,b,u,U,i,t,d'
 let g:AutoComplPop_IgnoreCaseOption = 0
 let g:AutoComplPop_BehaviorKeywordLength = 2

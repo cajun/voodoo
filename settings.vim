@@ -20,6 +20,7 @@ syntax on
 " Pattern Matching =============================================================
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight conflict markers
 
+highlight Search ctermbg=black ctermfg=yellow guibg=black guifg=yellow cterm=underline gui=underline
 highlight ExtraWhitespace ctermbg=red guibg=red
 highlight LongLine ctermbg=yellow guibg=red
 
@@ -28,6 +29,8 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
+au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
 " Temp Files ===================================================================
 set undodir=~/.vim/tmp/undo/     " undo files
@@ -44,6 +47,7 @@ set backspace=indent,eol,start          " handle backspace char
 set completeopt=longest,menuone,preview " what the complete menu looks like
 set hidden                              " handle hidden stuff better
 set hlsearch                            " highlight the search
+set incsearch                           " highlight the search
 set laststatus=2                        " Keep the status line on all windows
 set cursorline                          " highlight the current line
 set scrolloff=4                         " scroll when within 4 lines
@@ -69,6 +73,8 @@ set visualbell
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc
 set wildmenu
 set nowrap
+set smartcase
+set smartindent
 
 " White characters =============================================================
 set autoindent
