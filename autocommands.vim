@@ -30,5 +30,6 @@ augroup myvimrc
   autocmd BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
   autocmd BufWritePost ~/.vim/*.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
   autocmd BufWritePost ~/.vim/settings/*.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+  autocmd BufWritePost ~/.vim/local/*.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
   autocmd VimLeave silent !source ~/.vim/update.sh 2>&1 &
 augroup END
