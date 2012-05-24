@@ -4,7 +4,9 @@
 *.o
 *.log
 bundle
-tmp
+tmp/
+local/
 !tmp/backup/.gitkeep
 !tmp/swap/.gitkeep
 !tmp/undo/.gitkeep
+!local/.gitkeep
