@@ -14,6 +14,3 @@ source ~/.vim/mappings.vim
 for f in split(glob('~/.vim/settings/*.vim'), '\n')
   exe 'source' f
 endfor
-
-" section for trying to focus on visual selection
-silent !source ~/.vim/update.sh 2>&1 &
