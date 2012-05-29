@@ -21,6 +21,7 @@ syntax on
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight conflict markers
 
 highlight Search ctermbg=black ctermfg=yellow guibg=black guifg=yellow cterm=underline gui=underline
+highlight IncSearch ctermbg=yellow ctermfg=black guibg=yellow guifg=black
 highlight ExtraWhitespace ctermbg=red guibg=red
 highlight LongLine ctermbg=yellow guibg=red
 
