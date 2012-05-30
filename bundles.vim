@@ -37,6 +37,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'ap/vim-css-color'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'nono/vim-handlebars'
 
 " Load User bundles as well ====================================================
 if filereadable("~/.vim/local/bundles.vim")
