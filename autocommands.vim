@@ -24,6 +24,7 @@ autocmd BufReadPost,BufNew *.xml exe ":compiler ant"
 " XML Auto Format ==============================================================
 autocmd FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
+autocmd VimLeavePre * silent !source ~/.vim/update.sh 2>&1 &
 " Auto reload vimrc ============================================================
 augroup myvimrc
   autocmd!
@@ -31,5 +32,4 @@ augroup myvimrc
   autocmd BufWritePost ~/.vim/*.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
   autocmd BufWritePost ~/.vim/settings/*.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
   autocmd BufWritePost ~/.vim/local/*.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-  autocmd VimLeave silent !source ~/.vim/update.sh 2>&1 &
 augroup END
