@@ -7,6 +7,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 "" Bundles
+Bundle 'ack.vim'
 Bundle 'Tabular'
 Bundle 'NrrwRgn'
 Bundle 'vimwiki'
