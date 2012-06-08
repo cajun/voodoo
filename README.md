@@ -1,4 +1,5 @@
 # The Cajuns vim conf
+![voodoo](/voodoo.jpg)
 I want a clean simple vim configuration.  I'm played around a lot with different
 settings and never really liked any of them.  This configuration is the current
 incarnation.  It uses [vundler](https://github.com/gmarik/vundle).
@@ -44,9 +45,9 @@ or
 
 ```
 :Tabularize /=\zs
-shrimp = 'tasty'
-crawfish = 'mo tasty'
-crab = 'mmmmmmmm'
+shrimp =    'tasty'
+crawfish =  'mo tasty'
+crab =      'mmmmmmmm'
 ```
 
 ## tpope/vim-endwise
