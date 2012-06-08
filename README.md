@@ -1,5 +1,5 @@
 # The Cajuns vim conf
-![voodoo](/voodoo.jpg)
+![voodoo](https://github.com/cajun/voodoo/raw/master/voodoo.jpg)
 I want a clean simple vim configuration.  I'm played around a lot with different
 settings and never really liked any of them.  This configuration is the current
 incarnation.  It uses [vundler](https://github.com/gmarik/vundle).
