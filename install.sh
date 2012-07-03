@@ -4,7 +4,7 @@ cd ~
 mv ~/.vim ~/.vim.old
 mv ~/.vimrc ~/.vimrc.old
 
-git clone git://github.com/cajun/swamp.git ~/.vim
+git clone git://github.com/cajun/voodoo.git ~/.vim
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 ln -sf ~/.vim/.vimrc

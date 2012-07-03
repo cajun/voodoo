@@ -12,7 +12,7 @@ without further adieu I give you configuration.
 
 
 ## Quick install
-``curl https://raw.github.com/cajun/dot_vim/master/install.sh | bash``
+``curl https://raw.github.com/cajun/voodoo/master/install.sh | bash``
 
 # Included Plugins
 

@@ -15,7 +15,7 @@ autocmd InsertLeave * :set relativenumber
 
 autocmd BufRead,BufNewFile *.hamlc set filetype=haml
 
-autocmd BufRead * :silent! %s/\v\s+$//
+autocmd BufRead,BufWrite * :silent! %s/\v\s+$//
 
 " Android Development ==========================================================
 autocmd BufReadPost,BufNew *.java exe ":compiler ant"
@@ -24,7 +24,7 @@ autocmd BufReadPost,BufNew *.xml exe ":compiler ant"
 " XML Auto Format ==============================================================
 autocmd FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
-autocmd VimLeavePre * silent !source ~/.vim/update.sh 2>&1 &
+autocmd VimLeavePre * silent !source ~/.vim/update.sh > /dev/null &
 " Auto reload vimrc ============================================================
 augroup myvimrc
   autocmd!
