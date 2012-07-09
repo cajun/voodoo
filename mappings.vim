@@ -1,5 +1,7 @@
 " General Mappings =============================================================
 com! W :w
+com! WQ :wq
+com! Q :q
 com! Wall :wall
 
 map ,i :set list!<CR> " Toggle invisible chars
