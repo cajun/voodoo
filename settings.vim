@@ -57,7 +57,6 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set nolist
 set showbreak=↪
 
-set notimeout
 set ttimeout
 set ttimeoutlen=10
 
