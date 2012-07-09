@@ -2,7 +2,7 @@
 com! W :w
 com! Wall :wall
 
-map ,i :set list!<CR> " Toggle invisible chars
+map <leader>i :set list!<CR> " Toggle invisible chars
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
 " (it will prompt for sudo password when writing)
 cmap w!! %!sudo tee > /dev/null %
