@@ -16,7 +16,7 @@ without further adieu I give you configuration.
 
 # Included Plugins
 
-## vim-coffee-script
+## [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 
 Coffee script is a better way to write javascript.  NOTE: you will still need to
 learn javascript.  You need to understand how javascript handles things like
@@ -24,7 +24,7 @@ learn javascript.  You need to understand how javascript handles things like
 
 This plugin manages the all things coffee....
 
-## Tabular
+## [Tabular](https://github.com/godlygeek/tabular)
 
 Because I like things to line up.  Think about the following code:
 ```
@@ -50,48 +50,58 @@ crawfish =  'mo tasty'
 crab =      'mmmmmmmm'
 ```
 
-## tpope/vim-endwise
+## [tpope/vim-endwise](https://github.com/tpope/vim-endwise)
 Hey I (vim) know how to end that method/if/stuff.  Let me do it for you
 
-## tpope/vim-fugitive
+## [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 Git in vim.....really really good git in vim.  Learn this plugin and you will be
 very happy
 
-## tpope/vim-haml
-Haml just like Html but with out all the <>
+## [tpope/vim-haml](https://github.com/tpope/vim-haml)
+Haml just like Html but with out all the brackets
 
-## tpope/vim-rails
+## [tpope/vim-rails](https://github.com/tpope/vim-rails)
 If you use rails this plugin will help you navigate rails easily
 
-## tpope/vim-repeat
+## [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 This plugin gives the ``.``` more supper powers.  I just this a lot with
 surround.
 
-## tpope/vim-surround
+## [tpope/vim-surround](https://github.com/tpope/vim-surround)
 Things needs to be surrounded.  This does just that.  Select a region some how
 and tell this plugin to wrap it in Chunky Bacon.
 
-## tpope/vim-unimpaired
+## [tpope/vim-unimpaired](https://github.com/tpope/vim-unimpaired)
 Unimpaired give lots of little helpers.  The ones that I use are the ones
 dealing with the quick window.  It allows easier navigation +lots more.
 
-## scrooloose/nerdcommenter
+## [scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
 The nerd know how to comment.  I don't want to deal with the specifics. So i use
 the nerd.
 
-## scrooloose/nerdtree
-## scrooloose/syntastic
-## nelstrom/vim-textobj-rubyblock
+## [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
+This plugin gives you a very nice directory tree to view your files.  It has
+a preview option. It is handy to give you familiar way to find your files.
+
+## [scrooloose/syntastic](https://github.com/scrooloose/syntastic)
+When working with dynamic languages it's easy to have syntax errors that you
+don't catch until you execute the code.  That is where syntastic comes in.  It
+will run your code against a syntax checker to validate it before you execute
+it.
+
+## [nelstrom/vim-textobj-rubyblock](https://github.com/nelstrom/vim-textobj-rubyblock)
+This plugins has a few dependencies, which are listed below.  It will allow you
+to easliy select ruby objects.  `var` and `vir` will select to correct ruby
+block of code.
+
 ## kana/vim-textobj-user
 ## michaeljsmith/vim-indent-object
-## mirell/vim-matchit
+## matchit.zip
 ## Lokaltog/vim-powerline
 ## kien/ctrlp.vim
-## vimwiki
 ## Gundo
 ## SuperTab
 ## Tagbar
 ## delimitMate.vim
 ## ap/vim-css-color
-## Rename2
 ## altercation/vim-colors-solarized
