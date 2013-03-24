@@ -10,12 +10,13 @@ let mapleader = ","
 let maplocalleader = "\\"
 
 " Colors  ======================================================================
+syntax enable
 set t_Co=256                   " 256 colors working with OSX Terminal
 let g:solarized_termcolors=256 " Use as many as we can
 let g:solarized_termtrans=1    " Transparency when we can
 set background=dark            " Use Dark instead of Light version
+"set background=light            " Use Dark instead of Light version
 colorscheme solarized          " Solarized is NICE
-syntax on
 
 " Pattern Matching =============================================================
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight conflict markers
@@ -57,7 +58,6 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set nolist
 set showbreak=↪
 
-set notimeout
 set ttimeout
 set ttimeoutlen=10
 
