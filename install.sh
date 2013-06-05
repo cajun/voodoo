@@ -12,6 +12,6 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 ln -sf ~/.vim/.vimrc
 
-vim --noplugin +BundleInstall! +":w >> ~/.vim/history.log" +qa!
+vim -u ~/.vim/bundles.vim +BundleInstall! +":w >> ~/.vim/history.log" +qa!
 
 
