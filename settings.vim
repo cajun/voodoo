@@ -65,7 +65,7 @@ set modelines=0
 set noeol
 set relativenumber
 set numberwidth=6
-set shell=/bin/bash
+set shell=bash
 set showcmd
 set showmatch
 
