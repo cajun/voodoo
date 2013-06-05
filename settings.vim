@@ -1,6 +1,6 @@
 " General  =====================================================================
 filetype plugin indent on
-set formatprg=par\ -fw50
+set formatprg=par\ -fw70
 set tags =./tags,./TAGS,tags,TAGS,./tmp/tags,./tmp/TAGS " Where to look for tags
 
 set splitright " Always open splits to the right

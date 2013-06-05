@@ -37,7 +37,9 @@ Bundle 'chrisbra/NrrwRgn'
 Bundle 'nono/vim-handlebars'
 Bundle 'tpope/vim-markdown'
 Bundle 'vim-scripts/csv.vim'
-Bundle 'pangloss/vim-javascript'
+" Tring out new javascript lib
+"Bundle 'pangloss/vim-javascript'
+Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'tpope/vim-haml'
 
 " Load User bundles as well ====================================================
