@@ -1,8 +1,9 @@
 #! /usr/bin/env bash
 
-#set -e
+set -e
 VIM_UPDATE_LOCK=~/.vim/__update.lock
 VIM_HISTORY_LOG=~/.vim/history.log
+
 
 function cleanUp(){
   if [ -f $VIM_UPDATE_LOCK ]
@@ -12,11 +13,12 @@ function cleanUp(){
 }
 
 function endError(){
+  echo $2 >> $VIM_HISTORY_LOG
+  echo $1 >> $VIM_HISTORY_LOG
   echo "ERROR -- ${LINENO}" >> $VIM_HISTORY_LOG
   cleanUp
 }
 
-trap cleanUp EXIT
 trap endError ERR
 
 if [ ! -f $VIM_UPDATE_LOCK ]
@@ -35,11 +37,15 @@ then
     touch $VIM_UPDATE_LOCK
     cd ~/.vim
 
-    echo "-- Updating Voodoo/Bundler" >> $VIM_HISTORY_LOG
-    git pull >> ~/.vim/history.log && vim -X --noplugin +BundleClean! +BundleInstall! +":w >> ~/.vim/history.log" +qa! &> /dev/null
+    echo "-- Updating Voodoo" >> $VIM_HISTORY_LOG
+    git pull >> ~/.vim/history.log
+    echo "-- Updating Bundles" >> $VIM_HISTORY_LOG
+    vim -c "BundleClean!" -c "BundleInstall!" -c ":w >> ~/.vim/history.log" -c "qa!" &> /dev/null
 
     date >> $VIM_HISTORY_LOG
     echo "-- Update Complete" >> $VIM_HISTORY_LOG
+
+    cleanUp
   else
     echo "-- NOT On Line" >> $VIM_HISTORY_LOG
   fi
@@ -47,5 +53,4 @@ fi
 
 trap - EXIT
 trap - ERR
-cleanUp
 exit 0
