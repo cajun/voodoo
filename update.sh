@@ -24,10 +24,8 @@ trap endError ERR
 if [ ! -f $VIM_UPDATE_LOCK ]
 then
   date > $VIM_HISTORY_LOG
-  for interface in $(ls /sys/class/net/ | grep -v lo);
-  do
-    if [[ $(cat /sys/class/net/$interface/carrier) = 1 ]]; then OnLine=1; fi
-  done
+
+  ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null && OnLine=1 || echo error
 
   if [ $OnLine  ]
   then
