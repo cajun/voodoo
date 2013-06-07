@@ -54,7 +54,6 @@ set noerrorbells
 set visualbell t_vb=
 set lazyredraw
 
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set nolist
 set showbreak=↪
 
@@ -87,3 +86,6 @@ set expandtab
 set formatoptions=qrn1
 set colorcolumn=+1
 
+if has("multi_byte")
+  set encoding=utf-8
+endif
