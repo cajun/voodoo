@@ -6,7 +6,8 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-"" Bundles
+
+" Bundles
 Bundle 'Tabular'
 Bundle 'Gundo'
 Bundle 'SuperTab'
@@ -31,14 +32,11 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'ap/vim-css-color'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'chrisbra/NrrwRgn'
 " Syntax
 Bundle 'nono/vim-handlebars'
 Bundle 'tpope/vim-markdown'
 Bundle 'vim-scripts/csv.vim'
 " Tring out new javascript lib
-"Bundle 'pangloss/vim-javascript'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'tpope/vim-haml'
 

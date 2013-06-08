@@ -88,4 +88,5 @@ set colorcolumn=+1
 
 if has("multi_byte")
   set encoding=utf-8
+  set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 endif

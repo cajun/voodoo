@@ -7,5 +7,6 @@ if has('win32')
 
 
 else
-  set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+  " Possible won't work in windows
+  "set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 endif
