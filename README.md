@@ -30,6 +30,7 @@ without further adieu I give you configuration.
   - handlebars
 
 ### Directory Layout
+```
   .
   |-- autocommands.vim
   |-- bundle
@@ -60,6 +61,7 @@ without further adieu I give you configuration.
   |   `-- undo
   |-- update.sh
   `-- voodoo.jpg
+```
 
 ### Auto updates
 TODO: Add docs
