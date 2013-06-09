@@ -17,6 +17,7 @@ Works with Linux, OS X, and Windows ( from git shell )
 
 # Design of the vim configuration
 ### Features
+```
 * general short cuts ( listed under mappings.vim )
   - Leader = ,
   - <leader>i toggle invisible chars
@@ -65,6 +66,7 @@ Works with Linux, OS X, and Windows ( from git shell )
   - markdown
   - handlebars
   - exuberant ctags ( when installed )
+```
 
 ### Auto updates
 The auto update script executes every time that you close vim.
