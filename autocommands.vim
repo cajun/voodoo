@@ -17,12 +17,11 @@ autocmd BufRead,BufNewFile *.hamlc set filetype=haml
 
 autocmd BufRead,BufWrite * :silent! %s/\v\s+$//
 
-" Android Development ==========================================================
-autocmd BufReadPost,BufNew *.java exe ":compiler ant"
-autocmd BufReadPost,BufNew *.xml exe ":compiler ant"
-
-" XML Auto Format ==============================================================
-autocmd FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+if executable('ant')
+  " Android Development ==========================================================
+  autocmd BufReadPost,BufNew *.java exe ":compiler ant"
+  autocmd BufReadPost,BufNew *.xml exe ":compiler ant"
+endif
 
 autocmd VimLeavePre * silent !source ~/.vim/update.sh > /dev/null &
 " Auto reload vimrc ============================================================

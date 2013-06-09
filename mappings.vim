@@ -20,4 +20,6 @@ noremap <C-l>  <C-w>l
 nnoremap <leader>ev <C-w>s<C-w>j:e $MYVIMRC<cr>
 nnoremap <leader>eg <C-w>s<C-w>j:e ~/.gitconfig<cr>
 nnoremap <leader>ef <C-w>s<C-w>j:e ~/.config/fish/config.fish<cr>
+nnoremap <leader>eb <C-w>s<C-w>j:e ~/.bashrc<cr>
+nnoremap <leader>ez <C-w>s<C-w>j:e ~/.zshrc<cr>
 nnoremap <leader>et <C-w>s<C-w>j:e ~/.tmux.conf<cr>
