@@ -25,9 +25,9 @@ if [ ! -f $VIM_UPDATE_LOCK ]
 then
   date > $VIM_HISTORY_LOG
 
-  ping -q -w 1 -c 1 www.github.com > /dev/null && OnLine=1 || echo error
 
-  if [ $OnLine  ]
+
+  if (ping -w 1 -c 1 www.github.com > /dev/null) || (ping -w 1 -n 1 www.github.com > /dev/null)
   then
     echo "-- Update Start" >> $VIM_HISTORY_LOG
     echo "-- On Line" >> $VIM_HISTORY_LOG
