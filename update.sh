@@ -27,9 +27,7 @@ then
 
   date > $VIM_HISTORY_LOG
 
-  ping -q -c 1 www.github.com > /dev/null && OnLine=1 || echo error
-
-  if [ $OnLine  ]
+  if (ping -q -c 1 www.github.com > /dev/null) || (ping -w 1 -n 1 www.github.com > /dev/null)
   then
     echo "-- Update Start" >> $VIM_HISTORY_LOG
     echo "-- On Line" >> $VIM_HISTORY_LOG
@@ -37,7 +35,7 @@ then
     cd ~/.vim
 
     echo "-- Updating Voodoo" >> $VIM_HISTORY_LOG
-    git pull --quiet &>> ~/.vim/history.log
+    git pull --quiet >> ~/.vim/history.log
     git log ORIG_HEAD..HEAD --oneline >> $VIM_HISTORY_LOG
     echo "-- Updating Bundles" >> $VIM_HISTORY_LOG
     vim -c "BundleClean!" -c "BundleInstall!" -c ":w >> ~/.vim/history.log" -c "qa!" &> /dev/null
