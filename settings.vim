@@ -1,6 +1,10 @@
 " General  =====================================================================
 filetype plugin indent on
-set formatprg=par\ -fw70
+
+if (executable('par'))
+  set formatprg=par\ -fw70
+endif
+
 set tags =./tags,./TAGS,tags,TAGS,./tmp/tags,./tmp/TAGS " Where to look for tags
 
 set splitright " Always open splits to the right
@@ -11,11 +15,11 @@ let maplocalleader = "\\"
 
 " Colors  ======================================================================
 syntax enable
-set t_Co=256                   " 256 colors working with OSX Terminal
+set t_Co=256                   " 256 colors working with
 let g:solarized_termcolors=256 " Use as many as we can
 let g:solarized_termtrans=1    " Transparency when we can
 set background=dark            " Use Dark instead of Light version
-"set background=light            " Use Dark instead of Light version
+"set background=light            " Use Light instead of Dark version
 colorscheme solarized          " Solarized is NICE
 
 " Pattern Matching =============================================================
@@ -88,4 +92,5 @@ set colorcolumn=+1
 
 if has("multi_byte")
   set encoding=utf-8
+  set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 endif
