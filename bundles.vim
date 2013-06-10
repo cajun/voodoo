@@ -50,8 +50,3 @@ Bundle 'vim-scripts/csv.vim'
 " Tring out new javascript lib
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'tpope/vim-haml'
-
-" Load User bundles as well ====================================================
-if filereadable("~/.vim/local/bundles.vim")
-  source ~/.vim/local/bundles.vim
-endif

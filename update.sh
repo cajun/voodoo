@@ -26,7 +26,8 @@ then
 
   date > $VIM_HISTORY_LOG
 
-  ping -q -w 1 -c 1 www.github.com > /dev/null && OnLine=1 || echo error
+  #ping -q -w 1 -c 1 www.github.com > /dev/null && OnLine=1 || echo error
+  ping -q -c 1 www.github.com > /dev/null && OnLine=1 || echo error
 
   if [ $OnLine  ]
   then

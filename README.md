@@ -13,10 +13,16 @@ without further adieu I give you configuration.
 
 ## Quick install
 Works with Linux, OS X, and Windows ( from git shell )
-``curl https://raw.github.com/cajun/voodoo/master/install.sh | bash``
+
+```
+curl https://raw.github.com/cajun/voodoo/master/install.sh | bash
+```
+
 
 # Design of the vim configuration
-### Features
+
+
+## Features
 ```
 * general short cuts ( listed under mappings.vim )
   - Leader = ,
@@ -68,7 +74,7 @@ Works with Linux, OS X, and Windows ( from git shell )
   - exuberant ctags ( when installed )
 ```
 
-### Auto updates
+## Auto updates
 The auto update script executes every time that you close vim.
   1. Check to see if another update is running
   2. Check if github is up (ping github.com)
@@ -80,12 +86,11 @@ NOTE: this history of the last update is kept in ~/.vim/history.log
 ## Custom Configuration
 You can add custom configurations in voodoo.  Any .vim file put into local will
 be loaded at the end of the vimrc process,  therefore allowing you to override
-any of the existing settings.
+any of the existing settings.  If you want any custom bundle put them in
+local/bundle.vim and they will get installed with the rest of the bundles.
 
-Custom bundles should be loaded under the bundle directory.
 
-
-### Directory Layout
+# Directory Layout
 ```
   .
   |-- autocommands.vim
@@ -119,7 +124,7 @@ Custom bundles should be loaded under the bundle directory.
 ```
 
 
-# Included Plugins
+# Included Plugins ( and dependencies )
 
 * [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
   - coffee script required
