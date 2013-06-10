@@ -8,6 +8,7 @@ VIM_HISTORY_LOG=~/.vim/history.log
 function cleanUp(){
   if [ -f $VIM_UPDATE_LOCK ]
   then
+    date >> $VIM_HISTORY_LOG
     rm $VIM_UPDATE_LOCK
   fi
 }
@@ -26,7 +27,6 @@ then
 
   date > $VIM_HISTORY_LOG
 
-  #ping -q -w 1 -c 1 www.github.com > /dev/null && OnLine=1 || echo error
   ping -q -c 1 www.github.com > /dev/null && OnLine=1 || echo error
 
   if [ $OnLine  ]
@@ -37,11 +37,11 @@ then
     cd ~/.vim
 
     echo "-- Updating Voodoo" >> $VIM_HISTORY_LOG
-    git pull >> ~/.vim/history.log
+    git pull --quiet &>> ~/.vim/history.log
+    git log ORIG_HEAD..HEAD --oneline >> $VIM_HISTORY_LOG
     echo "-- Updating Bundles" >> $VIM_HISTORY_LOG
     vim -c "BundleClean!" -c "BundleInstall!" -c ":w >> ~/.vim/history.log" -c "qa!" &> /dev/null
 
-    date >> $VIM_HISTORY_LOG
     echo "-- Update Complete" >> $VIM_HISTORY_LOG
 
   else
