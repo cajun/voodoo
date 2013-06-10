@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 set -e
-VIM_UPDATE_LOCK=~/.vim/__update.lock
+VIM_UPDATE_LOCK=/tmp/__update.lock
 VIM_HISTORY_LOG=~/.vim/history.log
 
 
@@ -36,7 +36,6 @@ then
 
     echo "-- Updating Voodoo" >> $VIM_HISTORY_LOG
     git pull --quiet >> ~/.vim/history.log
-    git log ORIG_HEAD..HEAD --oneline >> $VIM_HISTORY_LOG
     echo "-- Updating Bundles" >> $VIM_HISTORY_LOG
     vim -c "BundleClean!" -c "BundleInstall!" -c ":w >> ~/.vim/history.log" -c "qa!" &> /dev/null
 

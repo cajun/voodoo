@@ -19,9 +19,9 @@ if has('autocmd')
   autocmd BufRead,BufWrite * :silent! %s/\v\s+$//
 
   if executable('ant')
-  " Android Development ==========================================================
-  autocmd BufReadPost,BufNew *.java exe ":compiler ant"
-  autocmd BufReadPost,BufNew *.xml exe ":compiler ant"
+    " Android Development ==========================================================
+    autocmd BufReadPost,BufNew *.java exe ":compiler ant"
+    autocmd BufReadPost,BufNew *.xml exe ":compiler ant"
   endif
 
   autocmd VimLeavePre * silent !source ~/.vim/update.sh > /dev/null &
