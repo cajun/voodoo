@@ -6,6 +6,7 @@
 bundle
 tmp/
 local/
+sessions
 !tmp/backup/.gitkeep
 !tmp/swap/.gitkeep
 !tmp/undo/.gitkeep

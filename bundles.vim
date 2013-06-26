@@ -12,6 +12,9 @@ Bundle 'Tabular'
 Bundle 'Gundo'
 Bundle 'SuperTab'
 
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-session'
+
 if (executable('ctags'))
   Bundle 'Tagbar'
 endif
