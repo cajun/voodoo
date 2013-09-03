@@ -24,6 +24,10 @@ if has('autocmd')
     autocmd BufReadPost,BufNew *.xml exe ":compiler ant"
   endif
 
+  if executable('go')
+    autocmd FileType go autocmd BufWritePre <buffer> Fmt
+  endif
+
   autocmd VimLeavePre * silent !source ~/.vim/update.sh > /dev/null &
   " Auto reload vimrc ============================================================
   augroup myvimrc

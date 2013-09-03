@@ -20,6 +20,10 @@ if (executable('coffee'))
   Bundle 'vim-coffee-script'
 endif
 
+if (executable('go'))
+  Bundle 'jnwhiteh/vim-golang'
+endif
+
 Bundle 'delimitMate.vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
