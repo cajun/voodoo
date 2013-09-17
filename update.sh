@@ -29,9 +29,9 @@ then
 
   echo "Checking remote" >> $VIM_HISTORY_LOG
   # Check to see if the remote is up
-  git ls-remote -h origin &> /dev/null
+  git ls-remote --heads origin &> /dev/null
 
-  if [$? -eq 0]
+  if [ $? -eq 0 ]
   then
     echo "-- Update Start" >> $VIM_HISTORY_LOG
     echo "-- On Line" >> $VIM_HISTORY_LOG

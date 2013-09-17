@@ -59,7 +59,7 @@ set visualbell t_vb=
 set lazyredraw
 
 set nolist
-set showbreak=↪
+"set showbreak=↪
 
 set ttimeout
 set ttimeoutlen=10
