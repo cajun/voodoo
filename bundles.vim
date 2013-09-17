@@ -12,6 +12,8 @@ Bundle 'Tabular'
 Bundle 'Gundo'
 Bundle 'SuperTab'
 
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-notes'
 if (executable('ctags'))
   Bundle 'Tagbar'
 endif
@@ -21,7 +23,7 @@ if (executable('coffee'))
 endif
 
 if (executable('go'))
-  Bundle 'jnwhiteh/vim-golang'
+  Bundle 'Blackrush/vim-gocode'
 endif
 
 Bundle 'delimitMate.vim'
