@@ -29,17 +29,16 @@ then
 
   echo "Checking remote" >> $VIM_HISTORY_LOG
   # Check to see if the remote is up
-  git ls-remote --heads origin &> /dev/null
+  cd ~/.vim
+  echo "-- Updating Voodoo" >> $VIM_HISTORY_LOG
+  git pull --quiet >> ~/.vim/history.log
 
   if [ $? -eq 0 ]
   then
     echo "-- Update Start" >> $VIM_HISTORY_LOG
     echo "-- On Line" >> $VIM_HISTORY_LOG
 
-    cd ~/.vim
 
-    echo "-- Updating Voodoo" >> $VIM_HISTORY_LOG
-    git pull --quiet >> ~/.vim/history.log
     echo "-- Updating Bundles" >> $VIM_HISTORY_LOG
     vim -c "BundleClean!" -c "BundleInstall!" -c ":w >> ~/.vim/history.log" -c "qa!" &> /dev/null
 
