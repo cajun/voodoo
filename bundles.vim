@@ -12,8 +12,6 @@ Bundle 'Tabular'
 Bundle 'Gundo'
 Bundle 'SuperTab'
 
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-notes'
 if (executable('ctags'))
   Bundle 'Tagbar'
 endif
@@ -29,7 +27,6 @@ endif
 Bundle 'delimitMate.vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
@@ -38,6 +35,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 
 if (executable('ruby'))
+  Bundle 'tpope/vim-rails'
   Bundle 'vim-ruby/vim-ruby'
   Bundle 'nelstrom/vim-textobj-rubyblock'
 endif
@@ -45,13 +43,14 @@ endif
 Bundle 'kana/vim-textobj-user'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'matchit.zip'
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
+Bundle 'maciakl/vim-neatstatus'
 Bundle 'kien/ctrlp.vim'
-Bundle 'ap/vim-css-color'
+"Bundle 'ap/vim-css-color'
 Bundle 'altercation/vim-colors-solarized'
 " Syntax
-Bundle 'nono/vim-handlebars'
-Bundle 'tpope/vim-markdown'
+"Bundle 'nono/vim-handlebars'
+"Bundle 'tpope/vim-markdown'
 Bundle 'vim-scripts/csv.vim'
 " Tring out new javascript lib
 Bundle 'othree/javascript-libraries-syntax.vim'
