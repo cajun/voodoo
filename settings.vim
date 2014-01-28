@@ -16,11 +16,13 @@ let maplocalleader = "\\"
 " Colors  ======================================================================
 syntax enable
 set t_Co=256                   " 256 colors working with
-let g:solarized_termcolors=256 " Use as many as we can
-let g:solarized_termtrans=1    " Transparency when we can
+"let g:solarized_termcolors=256 " Use as many as we can
+"let g:solarized_termtrans=1    " Transparency when we can
+"colorscheme solarized          " Solarized is NICE
+let g:molokai_original=1
+let g:rehash256=1
 set background=dark            " Use Dark instead of Light version
 "set background=light            " Use Light instead of Dark version
-colorscheme solarized          " Solarized is NICE
 
 " Pattern Matching =============================================================
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight conflict markers
@@ -67,7 +69,7 @@ set ttimeoutlen=10
 set modelines=0
 set noeol
 set relativenumber
-set numberwidth=6
+set numberwidth=4
 set shell=bash
 set showcmd
 set showmatch
@@ -76,6 +78,7 @@ set matchtime=5 " blink match chars for .x seconds
 
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc
 set wildmenu
+set wildmode=list:longest,full
 set nowrap
 set smartcase
 set smartindent

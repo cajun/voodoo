@@ -2,6 +2,7 @@
 set nocompatible
 filetype off
 
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -48,6 +49,7 @@ Bundle 'maciakl/vim-neatstatus'
 Bundle 'kien/ctrlp.vim'
 "Bundle 'ap/vim-css-color'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'molokai/molokai'
 " Syntax
 "Bundle 'nono/vim-handlebars'
 "Bundle 'tpope/vim-markdown'
