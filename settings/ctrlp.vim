@@ -2,6 +2,7 @@
 nmap <leader>f :CtrlP<cr>
 nmap <leader>b :CtrlPBuffer<cr>
 nmap <leader>m :CtrlPMRU<cr>
+nmap <leader>v :CtrlPTag<cr>
 
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_lazy_update = 1

@@ -27,7 +27,11 @@ endif
 
 Bundle 'delimitMate.vim'
 Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
+
+if (executable('git'))
+  Bundle 'tpope/vim-fugitive'
+endif
+
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
@@ -39,20 +43,16 @@ if (executable('ruby'))
   Bundle 'tpope/vim-rails'
   Bundle 'vim-ruby/vim-ruby'
   Bundle 'nelstrom/vim-textobj-rubyblock'
+  Bundle 'kana/vim-textobj-user'
+  "Bundle 'michaeljsmith/vim-indent-object'
 endif
 
-Bundle 'kana/vim-textobj-user'
-Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'matchit.zip'
-"Bundle 'Lokaltog/vim-powerline'
 Bundle 'maciakl/vim-neatstatus'
 Bundle 'kien/ctrlp.vim'
-"Bundle 'ap/vim-css-color'
 Bundle 'altercation/vim-colors-solarized'
 " Syntax
-"Bundle 'nono/vim-handlebars'
-"Bundle 'tpope/vim-markdown'
 Bundle 'vim-scripts/csv.vim'
-" Tring out new javascript lib
+Bundle 'tpope/vim-markdown'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'tpope/vim-haml'

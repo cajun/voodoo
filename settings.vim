@@ -17,8 +17,9 @@ let maplocalleader = "\\"
 syntax enable
 set t_Co=256                   " 256 colors working with
 let g:solarized_termcolors=256 " Use as many as we can
-"let g:solarized_termtrans=1    " Transparency when we can
+let g:solarized_termtrans=1    " Transparency when we can
 colorscheme solarized          " Solarized is NICE
+"colorscheme iceberg          " Solarized is NICE
 set background=dark            " Use Dark instead of Light version
 "set background=light            " Use Light instead of Dark version
 
