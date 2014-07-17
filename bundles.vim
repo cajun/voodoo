@@ -6,53 +6,52 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-" Bundles
-Bundle 'Tabular'
-Bundle 'Gundo'
-Bundle 'SuperTab'
+" Plugins
+Plugin 'Tabular'
+Plugin 'Gundo'
+Plugin 'SuperTab'
 
 if (executable('ctags'))
-  Bundle 'Tagbar'
+  Plugin 'Tagbar'
 endif
 
 if (executable('coffee'))
-  Bundle 'vim-coffee-script'
+  Plugin 'vim-coffee-script'
 endif
 
 if (executable('go'))
-  Bundle 'Blackrush/vim-gocode'
+  Plugin 'Blackrush/vim-gocode'
 endif
 
-Bundle 'delimitMate.vim'
-Bundle 'tpope/vim-endwise'
+Plugin 'delimitMate.vim'
+Plugin 'tpope/vim-endwise'
 
 if (executable('git'))
-  Bundle 'tpope/vim-fugitive'
+  Plugin 'tpope/vim-fugitive'
 endif
 
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 
 if (executable('ruby'))
-  Bundle 'tpope/vim-rails'
-  Bundle 'vim-ruby/vim-ruby'
-  Bundle 'nelstrom/vim-textobj-rubyblock'
-  Bundle 'kana/vim-textobj-user'
-  "Bundle 'michaeljsmith/vim-indent-object'
+  Plugin 'tpope/vim-rails'
+  Plugin 'vim-ruby/vim-ruby'
+  Plugin 'nelstrom/vim-textobj-rubyblock'
+  Plugin 'kana/vim-textobj-user'
 endif
 
-Bundle 'matchit.zip'
-Bundle 'maciakl/vim-neatstatus'
-Bundle 'kien/ctrlp.vim'
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'matchit.zip'
+Plugin 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'altercation/vim-colors-solarized'
 " Syntax
-Bundle 'vim-scripts/csv.vim'
-Bundle 'tpope/vim-markdown'
-Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'tpope/vim-haml'
+Plugin 'vim-scripts/csv.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-haml'

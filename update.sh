@@ -39,8 +39,8 @@ then
     echo "-- On Line" >> $VIM_HISTORY_LOG
 
 
-    echo "-- Updating Bundles" >> $VIM_HISTORY_LOG
-    vim -c "BundleClean!" -c "BundleInstall!" -c ":w >> ~/.vim/history.log" -c "qa!" &> /dev/null
+    echo "-- Updating Plugins" >> $VIM_HISTORY_LOG
+    vim -c "PluginClean!" -c "PluginInstall!" -c ":w >> ~/.vim/history.log" -c "qa!" &> /dev/null
 
     echo "-- Update Complete" >> $VIM_HISTORY_LOG
 
