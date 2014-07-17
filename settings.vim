@@ -5,7 +5,7 @@ if (executable('par'))
   set formatprg=par\ -fw70
 endif
 
-set tags =./tags,./TAGS,tags,TAGS,./tmp/tags,./tmp/TAGS " Where to look for tags
+set tags =./tags;,./TAGS;,./tmp/tags.,./tmp/TAGS. " Where to look for tags
 
 set splitright " Always open splits to the right
 set spell      " set vim to spell cause i can't

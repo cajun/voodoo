@@ -12,6 +12,7 @@ Plugin 'gmarik/vundle'
 Plugin 'Tabular'
 Plugin 'Gundo'
 Plugin 'SuperTab'
+Plugin 'mhinz/vim-signify'
 
 if (executable('ctags'))
   Plugin 'Tagbar'
