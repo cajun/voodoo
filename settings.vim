@@ -23,13 +23,13 @@ set background=dark            " Use Dark instead of Light version
 
 " Pattern Matching =============================================================
 
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight conflict markers
 highlight Search ctermbg=black ctermfg=yellow guibg=black guifg=yellow cterm=underline gui=underline
 highlight IncSearch ctermbg=yellow ctermfg=black guibg=yellow guifg=black
 highlight ExtraWhitespace ctermbg=red guibg=red
 highlight LongLine ctermbg=yellow guibg=red
 highlight ColorColumn ctermbg=magenta ctermfg=white guibg=red
 
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight conflict markers
 
 " Temp Files ===================================================================
 set undodir=~/.vim/tmp/undo/     " undo files
