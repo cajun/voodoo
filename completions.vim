@@ -16,6 +16,7 @@ if has('autocmd')
   autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
 endif
 
+
 " Auto Complete ================================================================
 set complete=.,w,b,u,U,i,t,d
 let g:AutoComplPop_CompleteOption = '.,w,b,u,U,i,t,d'

@@ -19,18 +19,17 @@ set t_Co=256                   " 256 colors working with
 let g:solarized_termcolors=256 " Use as many as we can
 let g:solarized_termtrans=1    " Transparency when we can
 colorscheme solarized          " Solarized is NICE
-"colorscheme iceberg          " Solarized is NICE
 set background=dark            " Use Dark instead of Light version
-"set background=light            " Use Light instead of Dark version
 
 " Pattern Matching =============================================================
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight conflict markers
 
 highlight Search ctermbg=black ctermfg=yellow guibg=black guifg=yellow cterm=underline gui=underline
 highlight IncSearch ctermbg=yellow ctermfg=black guibg=yellow guifg=black
 highlight ExtraWhitespace ctermbg=red guibg=red
 highlight LongLine ctermbg=yellow guibg=red
+highlight ColorColumn ctermbg=magenta ctermfg=white guibg=red
 
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight conflict markers
 
 " Temp Files ===================================================================
 set undodir=~/.vim/tmp/undo/     " undo files
@@ -44,7 +43,7 @@ set undoreload=10000
 " Settings =====================================================================
 set autoread                            " if the buffer changes reload it
 set backspace=indent,eol,start          " handle backspace char
-set completeopt=longest,menuone,preview " what the complete menu looks like
+set completeopt=longest,menu            " what the complete menu looks like
 set hidden                              " handle hidden stuff better
 set hlsearch                            " highlight the search
 set incsearch                           " highlight the search real-time
@@ -60,7 +59,6 @@ set visualbell t_vb=
 set lazyredraw
 
 set nolist
-"set showbreak=↪
 
 set ttimeout
 set ttimeoutlen=10
@@ -72,6 +70,7 @@ set numberwidth=4
 set shell=bash
 set showcmd
 set showmatch
+set title
 
 set matchtime=5 " blink match chars for .x seconds
 
