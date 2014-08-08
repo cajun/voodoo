@@ -24,12 +24,12 @@ set background=dark            " Use Dark instead of Light version
 " Pattern Matching =============================================================
 
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight conflict markers
-highlight Search ctermbg=black ctermfg=yellow guibg=black guifg=yellow cterm=underline gui=underline
-highlight IncSearch ctermbg=yellow ctermfg=black guibg=yellow guifg=black
-highlight ExtraWhitespace ctermbg=red guibg=red
-highlight LongLine ctermbg=yellow guibg=red
-highlight ColorColumn ctermbg=magenta ctermfg=white guibg=red
 
+highlight Search          ctermbg=black  ctermfg=yellow   cterm=underline
+highlight IncSearch       ctermbg=yellow ctermfg=black
+highlight ExtraWhitespace ctermbg=red
+highlight LongLine        ctermbg=yellow
+highlight CursorLine      ctermbg=NONE   cterm=underline
 
 " Temp Files ===================================================================
 set undodir=~/.vim/tmp/undo/     " undo files
@@ -89,7 +89,8 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set formatoptions=qrn1
-set colorcolumn=+1
+"set colorcolumn=+1
+execute "set colorcolumn=" . join(range(81,200), ',')
 
 if has("multi_byte")
   set encoding=utf-8
