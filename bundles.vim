@@ -12,11 +12,6 @@ Plugin 'gmarik/vundle'
 Plugin 'Tabular'
 Plugin 'Gundo'
 Plugin 'SuperTab'
-Plugin 'mhinz/vim-signify'
-
-if (executable('ctags'))
-  Plugin 'Tagbar'
-endif
 
 if (executable('coffee'))
   Plugin 'vim-coffee-script'
@@ -26,13 +21,11 @@ if (executable('go'))
   Plugin 'Blackrush/vim-gocode'
 endif
 
-Plugin 'delimitMate.vim'
-Plugin 'tpope/vim-endwise'
-
 if (executable('git'))
   Plugin 'tpope/vim-fugitive'
 endif
 
+Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
@@ -51,9 +44,10 @@ Plugin 'matchit.zip'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
+
 " Syntax
 Plugin 'vim-scripts/csv.vim'
 Plugin 'tpope/vim-markdown'
-Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'tpope/vim-haml'
 Plugin 'groenewege/vim-less'
