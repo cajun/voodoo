@@ -90,8 +90,8 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set formatoptions=qrn1
-"set colorcolumn=+1
-execute "set colorcolumn=" . join(range(81,200), ',')
+set colorcolumn=+1
+"execute "set colorcolumn=" . join(range(81,200), ',')
 
 if has("multi_byte")
   set encoding=utf-8

@@ -25,6 +25,10 @@ if (executable('git'))
   Plugin 'tpope/vim-fugitive'
 endif
 
+if (executable('rustc'))
+  Plugin 'rust-lang/rust.vim'
+endif
+
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
@@ -51,3 +55,4 @@ Plugin 'tpope/vim-markdown'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'tpope/vim-haml'
 Plugin 'groenewege/vim-less'
+Plugin 'digitaltoad/vim-jade'
