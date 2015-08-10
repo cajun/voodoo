@@ -13,6 +13,10 @@ Plugin 'Tabular'
 Plugin 'Gundo'
 Plugin 'SuperTab'
 
+if (executable('dart'))
+ Plugin 'dart-lang/dart-vim-plugin'
+endif
+
 if (executable('coffee'))
   Plugin 'vim-coffee-script'
 endif
@@ -52,7 +56,7 @@ Plugin 'altercation/vim-colors-solarized'
 " Syntax
 Plugin 'vim-scripts/csv.vim'
 Plugin 'tpope/vim-markdown'
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'othree/yajs.vim'
 Plugin 'tpope/vim-haml'
 Plugin 'groenewege/vim-less'
 Plugin 'digitaltoad/vim-jade'
