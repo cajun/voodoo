@@ -17,6 +17,10 @@ if (executable('dart'))
  Plugin 'dart-lang/dart-vim-plugin'
 endif
 
+if (executable('ag'))
+ Plugin 'rking/ag.vim'
+endif
+
 if (executable('coffee'))
   Plugin 'vim-coffee-script'
 endif
