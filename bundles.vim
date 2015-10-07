@@ -9,8 +9,6 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 " Plugins
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'bling/vim-airline'
 Plugin 'Tabular'
 Plugin 'Gundo'
 Plugin 'SuperTab'
@@ -57,6 +55,7 @@ if (executable('ruby'))
 endif
 
 Plugin 'matchit.zip'
+Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
 
@@ -67,3 +66,4 @@ Plugin 'othree/yajs.vim'
 Plugin 'tpope/vim-haml'
 Plugin 'groenewege/vim-less'
 Plugin 'digitaltoad/vim-jade'
+Plugin 'ryanoasis/vim-devicons'
