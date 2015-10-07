@@ -9,6 +9,8 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 " Plugins
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'bling/vim-airline'
 Plugin 'Tabular'
 Plugin 'Gundo'
 Plugin 'SuperTab'
@@ -37,6 +39,8 @@ if (executable('rustc'))
   Plugin 'rust-lang/rust.vim'
 endif
 
+Plugin 'cespare/vim-toml'
+
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
@@ -53,7 +57,6 @@ if (executable('ruby'))
 endif
 
 Plugin 'matchit.zip'
-Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
 
