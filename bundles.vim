@@ -13,6 +13,8 @@ Plugin 'Tabular'
 Plugin 'Gundo'
 Plugin 'SuperTab'
 
+Plugin 'mhinz/vim-startify'
+
 if (executable('dart'))
  Plugin 'dart-lang/dart-vim-plugin'
 endif
@@ -58,6 +60,7 @@ Plugin 'matchit.zip'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'ryanoasis/vim-devicons'
 
 " Syntax
 Plugin 'vim-scripts/csv.vim'
@@ -66,4 +69,3 @@ Plugin 'othree/yajs.vim'
 Plugin 'tpope/vim-haml'
 Plugin 'groenewege/vim-less'
 Plugin 'digitaltoad/vim-jade'
-Plugin 'ryanoasis/vim-devicons'
