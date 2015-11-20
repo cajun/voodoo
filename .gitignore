@@ -1,3 +1,5 @@
+
+
 .DS_Store
 .VimballRecord
 .netrwhist
@@ -7,6 +9,8 @@ bundle
 tmp/
 local/
 sessions
+session
+spell/
 !tmp/backup/.gitkeep
 !tmp/swap/.gitkeep
 !tmp/undo/.gitkeep
