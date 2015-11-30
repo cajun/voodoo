@@ -33,9 +33,9 @@ if (executable('git'))
   Plugin 'tpope/vim-fugitive'
 endif
 
-"if (executable('rustc'))
-  "Plugin 'rust-lang/rust.vim'
-"endif
+if (executable('rustc'))
+  Plugin 'rust-lang/rust.vim'
+endif
 
 "Plugin 'cespare/vim-toml'
 
