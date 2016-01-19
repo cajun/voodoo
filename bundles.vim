@@ -13,6 +13,7 @@ Plugin 'Tabular'
 Plugin 'Gundo'
 Plugin 'SuperTab'
 Plugin 'dbext4rdb'
+Plugin 'vimwiki'
 
 Plugin 'sheerun/vim-polyglot'
 Plugin 'mhinz/vim-startify'
