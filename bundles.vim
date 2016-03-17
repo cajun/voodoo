@@ -14,9 +14,12 @@ Plugin 'Gundo'
 Plugin 'SuperTab'
 Plugin 'dbext4rdb'
 Plugin 'vimwiki'
+Plugin 'mattn/calendar-vim'
 
 Plugin 'sheerun/vim-polyglot'
 Plugin 'mhinz/vim-startify'
+
+Plugin 'easymotion/vim-easymotion'
 
 if (executable('ag'))
  Plugin 'rking/ag.vim'
@@ -31,6 +34,7 @@ endif
 "endif
 
 if (executable('git'))
+  Plugin 'airblade/vim-gitgutter'
   Plugin 'tpope/vim-fugitive'
 endif
 

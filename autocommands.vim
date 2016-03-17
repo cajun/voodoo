@@ -1,5 +1,7 @@
 if has('autocmd')
 
+  au FileType xml exe ":silent %!xmllint --format --recover - 2>/dev/null"
+
   " Bad white space ==============================================================
   autocmd BufWinEnter * let w:m2=matchadd('LongLine', '\%>120v.\+', -1)
   autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -27,6 +29,8 @@ if has('autocmd')
   if executable('go')
     autocmd FileType go autocmd BufWritePre <buffer> Fmt
   endif
+
+  autocmd User Startified setlocal buftype=
 
   autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
   autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
