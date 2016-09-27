@@ -8,13 +8,16 @@ call vundle#rc()
 
 Plugin 'gmarik/vundle'
 
+Plugin 'neomake/neomake'
+
 " Plugins
 Plugin 'Tabular'
+"Plugin 'Tagbar'
 Plugin 'Gundo'
 Plugin 'SuperTab'
 Plugin 'dbext4rdb'
-Plugin 'vimwiki'
-Plugin 'mattn/calendar-vim'
+"Plugin 'vimwiki'
+"Plugin 'mattn/calendar-vim'
 
 Plugin 'sheerun/vim-polyglot'
 Plugin 'mhinz/vim-startify'
@@ -48,9 +51,10 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-vinegar'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/syntastic'
 
 if (executable('ruby'))
   Plugin 'tpope/vim-rails'
@@ -63,12 +67,15 @@ Plugin 'matchit.zip'
 Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'mhartington/oceanic-next'
+Plugin 'maxst/flatcolor'
 Plugin 'ryanoasis/vim-devicons'
 
 " Syntax
 Plugin 'vim-scripts/csv.vim'
-Plugin 'tpope/vim-markdown'
+"Plugin 'tpope/vim-markdown'
 Plugin 'othree/yajs.vim'
+"Plugin 'mxw/vim-jsx'
 "Plugin 'tpope/vim-haml'
 "Plugin 'groenewege/vim-less'
 "Plugin 'digitaltoad/vim-jade'

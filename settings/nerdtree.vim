@@ -1,4 +1,4 @@
 " NERDTree =====================================================================
-nmap <leader>n :NERDTreeToggle<CR>
+"nmap <leader>n :NERDTreeToggle<CR>
 
-let g:NERDTreeWinPos = "right"
+"let g:NERDTreeWinPos = "right"
