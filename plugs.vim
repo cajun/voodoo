@@ -66,9 +66,14 @@ if (executable('ruby'))
   Plug 'kana/vim-textobj-user'
 endif
 
+
 Plug 'matchit.zip'
 Plug 'bling/vim-airline'
-Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+"Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'altercation/vim-colors-solarized'
 Plug 'mhartington/oceanic-next'
 "Plug 'maxst/flatcolor'
