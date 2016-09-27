@@ -8,6 +8,6 @@ fi
 
 git clone git://github.com/cajun/voodoo.git ~/.config/nvim
 
-vim -u ~/.vim/plugs.vim +PlugInstall! +":w >> ~/.config/nvim/history.log" +qa!
+nvim -u ~/.config/nvim/plugs.vim +PlugInstall! +":w >> ~/.config/nvim/history.log" +qa!
 
 
