@@ -2,6 +2,8 @@ if has('autocmd')
 
   au FileType xml exe ":silent %!xmllint --format --recover - 2>/dev/null"
 
+	autocmd! BufWritePost * Neomake
+
   " Bad white space ==============================================================
   autocmd BufWinEnter * let w:m2=matchadd('LongLine', '\%>120v.\+', -1)
   autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -37,14 +39,14 @@ if has('autocmd')
   autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
   autocmd Filetype css setlocal ts=4 sts=4 sw=4 expandtab
 
-  autocmd VimLeavePre * silent !source ~/.vim/update.sh > /dev/null &
+  autocmd VimLeavePre * silent !source ~/.config/nvim/update.sh > /dev/null &
+
   " Auto reload vimrc ============================================================
   augroup myvimrc
     autocmd!
-    autocmd BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-    autocmd BufWritePost ~/.vim/*.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-    autocmd BufWritePost ~/.vim/settings/*.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-    autocmd BufWritePost ~/.vim/local/*.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+    autocmd BufWritePost ~/.config/nvim/*.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+    autocmd BufWritePost ~/.config/nvim/settings/*.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+    autocmd BufWritePost ~/.config/nvim/local/*.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
   augroup END
 
 endif

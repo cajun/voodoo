@@ -1,23 +1,13 @@
 #! /usr/bin/env bash
 
 cd ~
-if [[ -d !~/.vim ]]
+if [[ -d !~/.config/nvim ]]
 then
-  mv ~/.vim ~/.vim.old
-  mv ~/.vimrc ~/.vimrc.old
+  mv ~/.config/nvim/nvim ~/.config/nvim.old
 fi
 
-if [[ -d !~/_vim ]]
-then
-  mv ~/_vim ~/_vim.old
-  mv ~/_vimrc ~/_vimrc.old
-fi
+git clone git://github.com/cajun/voodoo.git ~/.config/nvim
 
-git clone git://github.com/cajun/voodoo.git ~/.vim
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-
-ln -sf ~/.vim/.vimrc
-
-vim -u ~/.vim/bundles.vim +BundleInstall! +":w >> ~/.vim/history.log" +qa!
+vim -u ~/.vim/plugs.vim +PlugInstall! +":w >> ~/.config/nvim/history.log" +qa!
 
 

@@ -47,9 +47,9 @@ highlight LongLine        ctermbg=yellow
 highlight CursorLine      ctermbg=NONE   cterm=underline
 
 " Temp Files ===================================================================
-set undodir=~/.vim/tmp/undo/     " undo files
-set backupdir=~/.vim/tmp/backup/ " backups
-set directory=~/.vim/tmp/swap/   " swap files
+set undodir=~/.config/nvim/tmp/undo/     " undo files
+set backupdir=~/.config/nvim/tmp/backup/ " backups
+set directory=~/.config/nvim/tmp/swap/   " swap files
 set backup                       " turn on backups
 set undofile                     " turn on undos vim 7.3 feature
 set undolevels=1000              " how much you can undo
@@ -67,7 +67,6 @@ set laststatus=2                        " Keep the status line on all windows
 set cursorline                          " highlight the current line
 set scrolloff=4                         " scroll when within 4 lines above/below
 set sidescrolloff=5                     " scroll when within 5 lines left/right
-set ttyfast                             " the console is fast so use it
 
 set noerrorbells
 set visualbell t_vb=

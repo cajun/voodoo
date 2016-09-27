@@ -16,3 +16,6 @@ spell/
 !tmp/undo/.gitkeep
 !local/.gitkeep
 __update.lock
+
+autoload/
+plugged/

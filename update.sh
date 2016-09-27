@@ -2,7 +2,7 @@
 
 set -e
 VIM_UPDATE_LOCK=/tmp/__update.lock
-VIM_HISTORY_LOG=~/.vim/history.log
+VIM_HISTORY_LOG=~/.config/nvim/history.log
 
 
 function cleanUp(){
@@ -29,9 +29,9 @@ then
 
   echo "Checking remote" >> $VIM_HISTORY_LOG
   # Check to see if the remote is up
-  cd ~/.vim
+  cd ~/.config/nvim
   echo "-- Updating Voodoo" >> $VIM_HISTORY_LOG
-  git pull --quiet >> ~/.vim/history.log
+  git pull --quiet >> ~/.config/nvim/history.log
 
   if [ $? -eq 0 ]
   then
@@ -40,7 +40,7 @@ then
 
 
     echo "-- Updating Plugins" >> $VIM_HISTORY_LOG
-    vim -c "PluginClean!" -c "PluginInstall!" -c ":w >> ~/.vim/history.log" -c "qa!" &> /dev/null
+    vim -c "PlugClean" -c "PlugInstall" -c ":w >> ~/.config/nvim/history.log" -c "qa!" &> /dev/null
 
     echo "-- Update Complete" >> $VIM_HISTORY_LOG
 
