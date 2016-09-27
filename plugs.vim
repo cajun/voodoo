@@ -12,6 +12,8 @@ if has('nvim')
   Plug 'neomake/neomake'
 endif
 
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 " Plugs
 
 Plug 'Tabular'
