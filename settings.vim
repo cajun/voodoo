@@ -15,18 +15,6 @@ let mapleader = ","
 let maplocalleader = "\\"
 
 " Colors  ======================================================================
-"syntax enable
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"set t_Co=256                   " 256 colors working with
-"let g:solarized_termcolors=256 " Use as many as we can
-"let g:solarized_termtrans=1    " Transparency when we can
-"colorscheme solarized          " Solarized is NICE
-"set background=dark            " Use Dark instead of Light version
-"
- " For Neovim 0.1.3 and 0.1.4
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-" Or if you have Neovim >= 0.1.5
 if (has("termguicolors"))
  set termguicolors
 endif

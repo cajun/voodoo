@@ -16,6 +16,11 @@ noremap <C-j>  <C-w>j
 noremap <C-k>  <C-w>k
 noremap <C-l>  <C-w>l
 
+if has('nvim')
+  " Hack to get C-h working in NeoVim
+  nmap <BS> <C-W>h
+endif
+
 " Shortcut to config files =====================================================
 nnoremap <leader>ev <C-w>s<C-w>j:e $MYVIMRC<cr>
 nnoremap <leader>eg <C-w>s<C-w>j:e ~/.gitconfig<cr>
