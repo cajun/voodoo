@@ -43,6 +43,9 @@ set undofile                     " turn on undos vim 7.3 feature
 set undolevels=1000              " how much you can undo
 set undoreload=10000
 
+" Setting to make vim work better with file watchers
+set backupcopy=yes
+
 " Settings =====================================================================
 set autoread                            " if the buffer changes reload it
 set backspace=indent,eol,start          " handle backspace char
