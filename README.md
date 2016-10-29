@@ -15,7 +15,7 @@ without further adieu I give you configuration.
 Works with Linux, OS X, and Windows ( from git shell )
 
 ```
-curl https://raw.github.com/cajun/voodoo/master/install.sh | bash
+curl https://raw.githubusercontent.com/cajun/voodoo/master/install.sh | bash
 ```
 
 
